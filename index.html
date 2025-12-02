@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Comprar Entradas: Nombre del Evento Accesible</title> 
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    </head>
+
+    <body class="bg-light">
+
+        <main class="container container-lg py-5">
+            
+            <section class="row g-5 mb-5">
+                
+                <div class="col-lg-7">
+                    
+                    <figure class="mb-4">
+                        <img src="img/no_me_olvides_s.png" class="img-fluid rounded-3 shadow-sm" alt="Una multitud animada en un concierto, ideal para describir el ambiente del evento.">
+                        <figcaption class="visually-hidden">Imagen promocional del evento: [Nombre del Evento]</figcaption>
+                    </figure>
+                    
+                    <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm">
+                        
+                        <h1 class="fw-bolder mb-3">Nombre del Evento</h1> 
+
+                        <div class="fs-5 mb-4">
+                            <p class="mb-1">
+                                <i class="bi bi-calendar-event-fill me-2" aria-hidden="true"></i>
+                                <span class="fw-semibold">Fecha y Hora:</span> Viernes 15 de Diciembre - 21:00 hs
+                            </p>
+                            <p class="mb-0">
+                                <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>
+                                <span class="fw-semibold">Lugar:</span> Estadio Principal - Buenos Aires
+                            </p>
+                        </div>
+
+                        <hr>
+                        
+                        <article class="mt-4">
+                            <h2 class="fw-bold mb-3">
+                                <i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>
+                                Descripción del Evento
+                            </h2>
+                            <p>
+                                Disfruta de una noche inolvidable con el mejor rock en vivo, adaptado para ser <strong>completamente inclusivo</strong>. Este evento contará con zonas especiales de baja intensidad sensorial, rampas accesibles y personal de apoyo en todo momento.
+                            </p>
+                            <p>
+                                El concierto contará con un sistema de sonido de última generación y efectos visuales impresionantes. Las bandas invitadas prometen interpretar sus mayores éxitos.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </div>
+                
+                
+                <div class="col-lg-5" aria-labelledby="comprar-title">
+                    <div class="row g-3">
+                        <!-- Tarjeta de compra (sticky en pantallas grandes) -->
+                        <div class="col-12">
+                            <div class="card p-4 rounded-3 border-primary border-3">
+                                <h3 id="comprar-title" class="fw-bolder mb-3 text-center text-primary">
+                                <i class="bi bi-wallet2 me-2" aria-hidden="true"></i>
+                                Comprar Entradas
+                                </h3>
+
+                                <p class="fs-4 text-center mb-4">Precio Único: <span class="fw-bold">$18.000 ARS</span></p>
+
+                                <form class="mb-3" aria-label="Formulario de compra">
+                                <div class="mb-4">
+                                    <label for="cantidad-entradas" class="form-label fw-semibold">Cantidad de Entradas</label>
+                                    <input type="number" id="cantidad-entradas" class="form-control form-control-lg text-center" value="1" min="1" max="10" aria-label="Seleccionar cantidad de entradas" />
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm" aria-label="Confirmar y comprar">
+                                    <i class="bi bi-cart-fill me-2" aria-hidden="true"></i> Confirmar y Comprar
+                                </button>
+                                </form>
+
+                                <p class="text-center text-muted small mb-0">Entradas limitadas</p>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta(s) de accesibilidad: en una fila pueden mostrarse como 1 o 2 columnas según ancho -->
+                        <div class="col-12">
+                            <div class="card p-4 rounded-3 shadow-sm border-0">
+                                <h4 class="fw-bold mb-3 text-success">
+                                <i class="bi bi-person-wheelchair me-2" aria-hidden="true"></i>
+                                Accesibilidad del Evento
+                                </h4>
+
+                                <div class="row g-2">
+                                    <div class="col-12 col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-person-wheelchair fs-5 me-2" aria-hidden="true"></i> Plataformas y rampas de acceso
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-signpost-2-fill fs-5 me-2" aria-hidden="true"></i> Zona de baja intensidad sensorial
+                                        </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-ear-fill fs-5 me-2" aria-hidden="true"></i> Bucle magnético para audífonos
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-person-badge fs-5 me-2" aria-hidden="true"></i> Intérprete de Lengua de Señas (LSE)
+                                        </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                               
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            
+            </section>
+
+            <hr class="my-5">
+
+            <section class="mb-5">
+                <h2 class="fw-bold mb-3 text-center">
+                    <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>
+                    Plano y Ubicación de Entradas
+                </h2>
+
+                <div class="card p-3 p-md-4 rounded-3 shadow-sm">
+                    
+                    <div class="row g-4 align-items-center"> 
+                        <div class="col-lg-5 col-md-6 text-center">
+                            <img src="img/parque.jpg" class="img-fluid rounded-3 border border-secondary shadow-sm" 
+                                alt="Plano del parque de eventos, mostrando diferentes zonas para asistentes y áreas accesibles."
+                                style="max-height: 350px; width: auto;"> 
+                            <p class="mt-2 text-muted small fst-italic">Haz clic para ver el mapa interactivo.</p>
+                        </div>
+                        
+                        <div class="col-lg-7 col-md-6">
+                            <h3 class="mb-3 fs-5">Vista del Recinto y Zonas Accesibles</h3>
+                            <p class="small text-muted mb-4">
+                                Visualiza la distribución del parque y las áreas con accesibilidad mejorada (Plataforma SVR y Zona Tranquila). Todas las rutas de acceso están libres de barreras.
+                            </p>
+                            
+                            <h4 class="mt-3 mb-3 fs-5 fw-bold">Tipos de Entradas Disponibles</h4>
+                            
+                            <div class="row g-2">
+                                <div class="col-sm-6">
+                                    <div class="card h-100 p-2 border-primary border-3">
+                                        <h5 class="fw-semibold small mb-1 text-primary">
+                                            <i class="bi bi-tag-fill me-1" aria-hidden="true"></i> General
+                                        </h5>
+                                        <p class="small text-muted mb-0">Acceso a zonas de pie o asientos no reservados.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="card h-100 p-2 border-success border-3">
+                                        <h5 class="fw-semibold small mb-1 text-success">
+                                            <i class="bi bi-person-wheelchair me-1" aria-hidden="true"></i> Asiento Accesible (SVR)
+                                        </h5>
+                                        <p class="small text-muted mb-0">Espacio reservado para silla de ruedas y un acompañante.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                    <div class="card h-100 p-2 border-info border-3">
+                                        <h5 class="fw-semibold small mb-1 text-info">
+                                            <i class="bi bi-volume-mute-fill me-1" aria-hidden="true"></i> Zona Tranquila
+                                        </h5>
+                                        <p class="small text-muted mb-0">Área con bajo volumen de sonido y menor estimulación visual.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <hr class="my-5">
+
+            <section class="mb-5">
+                <h2 class="fw-bold mb-4 text-center">
+                    <i class="bi bi-pin-map-fill me-2" aria-hidden="true"></i>
+                    Cómo Llegar al Estadio
+                </h2>
+
+                <div class="card p-4 p-md-5 rounded-3 shadow-sm">
+                    <div class="row g-4 align-items-center">
+                        <!-- Columna del mapa (más compacto con ratio 4x3) -->
+                        <div class="col-12 col-md-5 text-center">
+                            <div class="ratio ratio-4x3 rounded-3 overflow-hidden shadow-sm">
+                                <iframe
+                                    class="w-100 h-100"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.3955067555703!2d-58.428567224284954!3d-34.56885775565797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5a28c37ff9b%3A0x289b0f07f03e748b!2sHip%C3%B3dromo%20de%20Palermo!5e0!3m2!1ses!2sar!4v1763927111157!5m2!1ses!2sar"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Mapa interactivo de la ubicación del Estadio Principal"
+                                    aria-describedby="map-desc">
+                                </iframe>
+                            </div>
+
+                            <!-- Botón visible sólo en pantallas pequeñas para abrir Google Maps en nueva pestaña -->
+                            <a class="btn btn-outline-primary mt-3 d-inline-block d-md-none" href="https://www.google.com/maps/place/Hip%C3%B3dromo+de+Palermo" target="_blank" rel="noopener noreferrer" aria-label="Abrir mapa en Google Maps en nueva pestaña">
+                                <i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Abrir mapa
+                            </a>
+
+                            <p id="map-desc" class="mt-2 text-muted small fst-italic">Pulsa "Abrir mapa" para ver la ruta o usa el mapa integrado.</p>
+                        </div>
+
+                        <!-- Columna de texto / transporte -->
+                        <div class="col-12 col-md-7">
+                            <h4 class="mb-3">Opciones de Transporte Accesible</h4>
+                            <ul class="list-unstyled row">
+                                <li class="col-12 col-sm-6 mb-2">
+                                    <i class="bi bi-bus-front-fill text-primary me-2" aria-hidden="true"></i>
+                                    <strong>Bus:</strong> Líneas 12, 60 y 152 (rampas disponibles).
+                                </li>
+                                <li class="col-12 col-sm-6 mb-2">
+                                    <i class="bi bi-train-front-fill text-primary me-2" aria-hidden="true"></i>
+                                    <strong>Tren:</strong> Estación Central (Línea Mitre). Acceso con ascensor.
+                                </li>
+                                <li class="col-12 col-sm-6 mb-2">
+                                    <i class="bi bi-car-front-fill text-primary me-2" aria-hidden="true"></i>
+                                    <strong>Parking:</strong> Estacionamiento para vehículos con certificado de discapacidad.
+                                </li>
+                                <li class="col-12 col-sm-6 mb-2">
+                                    <i class="bi bi-walk me-2" aria-hidden="true"></i>
+                                    <strong>A pie:</strong> Entradas peatonales accesibles desde la Av. Principal.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <hr class="my-5">
+
+            <section>
+                <h2 class="fw-bold mb-4 text-center">
+                    <i class="bi bi-card-list me-2" aria-hidden="true"></i>
+                    Políticas y Logística
+                </h2>
+
+                <div class="row g-4 justify-content-center"> 
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-danger border-start border-4"> 
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-3 text-danger">
+                                    <i class="bi bi-x-octagon-fill me-2" aria-hidden="true"></i> Restricciones
+                                </h5>
+                                <ul class="list-unstyled small">
+                                    <li class="mb-2"><i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i> Prohibido ingresar con bebidas alcohólicas</li>
+                                    <li class="mb-2"><i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i> No se permiten cámaras profesionales</li>
+                                    <li class="mb-2"><i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i> Prohibido fumar en el interior</li>
+                                    <li class="mb-2"><i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i> No se admiten objetos punzantes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-success border-start border-4">
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-3 text-success">
+                                    <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Objetos Permitidos
+                                </h5>
+                                <ul class="list-unstyled small">
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Botellas de agua selladas (plástico)</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Medicamentos esenciales con prescripción</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Carteras y mochilas pequeñas</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Banderines y carteles sin astas duras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-info border-start border-4">
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-3 text-info">
+                                    <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i> Servicios Disponibles
+                                </h5>
+                                <ul class="list-unstyled small">
+                                    <li class="mb-2"><i class="bi bi-basket me-2" aria-hidden="true"></i> Zona de comidas y bebidas (opciones inclusivas)</li>
+                                    <li class="mb-2"><i class="bi bi-bag-fill me-2" aria-hidden="true"></i> Tienda oficial de merchandising</li>
+                                    <li class="mb-2"><i class="bi bi-parking-fill me-2" aria-hidden="true"></i> Estacionamiento exclusivo para PMR</li>
+                                    <li class="mb-2"><i class="bi bi-hospital-fill me-2" aria-hidden="true"></i> Servicio médico de emergencia y paramédicos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

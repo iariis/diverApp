@@ -1,55 +1,63 @@
-/* Fondo general */
-body {
-  background-color: #f4f4f4;
+body{
+    background: linear-gradient(135deg, #d8f1ff, #ffffff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* Tarjeta */
-.login-card {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 15px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+.login-card{
+    max-width:380px;
+    width:100%;
+    background:#ffffff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0px 8px 25px rgba(0,0,0,0.15);
+    text-align:center;
 }
 
-/* Título */
-.titulo {
-  color: #6c6c6c;
-  font-weight: 600;
+.logo{
+    width:80px;
+    margin-bottom:10px;
 }
 
-/* Inputs */
-.input-custom {
-  height: 50px;
-  border-radius: 10px !important;
-  border: 1px solid #d4d4d4;
-  padding-left: 14px;
-  padding-right: 40px;
+h2{
+    color:#3a83c2;
 }
 
-/* Botón */  TAMPOCO FUNCIONAAA
-.btn-custom {
-  background-color: #7d7d7d;
-  color: #fff;
-  height: 45px;
-  border-radius: 10px;
+.subtitle{
+    font-size:14px;
+    color:#666;
+    margin-bottom:20px;
 }
 
-.btn-custom:hover {
-  background-color: #5e5e5e;
-  color: white;
+.btn-login{
+    background: linear-gradient(135deg, #66c6f2, #3877c6);
+    color:white;
+    border-radius:12px;
+    padding:10px;
 }
 
-/* Ícono de mostrar contraseña */ AUN NO FUNCIONAAAA
-.toggle-pass {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0.6;
+.btn-login:hover{
+    background: linear-gradient(135deg, #56b8ee, #2967b0);
 }
 
-.toggle-pass:hover {
-  opacity: 1;
+a{
+    text-decoration:none;
+    color:#4aaaf2;
+    font-size:14px;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.error{
+    color:red;
+    display:none;
+}
+
+.success{
+    color:green;
+    display:none;
 }

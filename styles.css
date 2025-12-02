@@ -1,0 +1,63 @@
+body{
+    background: linear-gradient(135deg, #d8f1ff, #ffffff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    max-width:380px;
+    width:100%;
+    background:#ffffff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0px 8px 25px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.logo{
+    width:80px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#3a83c2;
+}
+
+.subtitle{
+    font-size:14px;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.btn-login{
+    background: linear-gradient(135deg, #66c6f2, #3877c6);
+    color:white;
+    border-radius:12px;
+    padding:10px;
+}
+
+.btn-login:hover{
+    background: linear-gradient(135deg, #56b8ee, #2967b0);
+}
+
+a{
+    text-decoration:none;
+    color:#4aaaf2;
+    font-size:14px;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.error{
+    color:red;
+    display:none;
+}
+
+.success{
+    color:green;
+    display:none;
+}

@@ -1,272 +1,338 @@
 <!DOCTYPE html>
 <html lang="es">
-
   <head>
     <meta charset="UTF-8" />
-    <title>diverApp - Agenda de eventos</title>
+    <title>DiverApp - Eventos inclusivos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="app-shell">
+    <!-- ================= LOGIN ================= -->
+    <main id="login-view" class="login-wrapper">
+      <section class="login-card">
+        <div class="login-logo">🌈</div>
+        <h1 class="login-title">DiverApp</h1>
+        <p class="login-subtitle">Eventos inclusivos para todos</p>
 
-      <!-- ============ HEADER (solo logueado) ============ -->
-      <header class="topbar" id="app-header">
-        <div class="brand">
-          <div class="brand-logo" aria-hidden="true">dA</div>
+        <form class="login-form" onsubmit="return false;">
+          <label class="field">
+            <span>Email</span>
+            <input
+              type="email"
+              id="email-login"
+              placeholder="tu@email.com"
+              autocomplete="email"
+            />
+          </label>
+
+          <label class="field">
+            <span>Contraseña</span>
+            <input
+              type="password"
+              id="password-login"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            />
+          </label>
+
+          <p class="mensaje-error" id="login-error"></p>
+
+          <button type="button" class="btn btn-primary" id="btn-login">
+            Iniciar sesión
+          </button>
+
+          <div class="login-links">
+            <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+            <a href="#" class="link">¿No tienes cuenta? Crear cuenta</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- ================= APP ================= -->
+    <div id="app-view" class="app-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">🌈</div>
           <div>
-            <div class="brand-name">diverApp</div>
-            <div class="brand-subtitle">Agenda inclusiva de eventos</div>
+            <div className="sidebar-title">DiverApp</div>
+            <p class="sidebar-subtitle">Eventos inclusivos para todos</p>
           </div>
         </div>
-        <nav class="nav" aria-label="Navegación principal">
-          <button class="nav-link" data-view="home">Inicio</button>
-          <button class="nav-link" data-view="eventos">Eventos</button>
-          <button class="nav-link" data-view="mis-eventos">Mis eventos</button>
-          <button class="nav-link" data-view="crear-evento">Crear Evento</button>
-          <span class="nav-user" id="nav-user"></span>
-          <button class="nav-link nav-link-primario" id="btn-logout">Salir</button>
+
+        <nav class="sidebar-nav">
+          <button class="nav-item is-active" data-view="inicio">
+            <span class="nav-icon">🏠</span>
+            <span>Inicio</span>
+          </button>
+          <button class="nav-item" data-view="explorar">
+            <span class="nav-icon">🔍</span>
+            <span>Explorar</span>
+          </button>
+          <button class="nav-item" data-view="favoritos">
+            <span class="nav-icon">❤️</span>
+            <span>Favoritos</span>
+          </button>
+          <button class="nav-item" data-view="mis-eventos">
+            <span class="nav-icon">📅</span>
+            <span>Mis Eventos</span>
+          </button>
+          <button class="nav-item" data-view="crear-evento">
+            <span class="nav-icon">➕</span>
+            <span>Crear Evento</span>
+          </button>
+          <button class="nav-item" data-view="accesibilidad">
+            <span class="nav-icon">♿</span>
+            <span>Accesibilidad</span>
+          </button>
+          <button class="nav-item" data-view="perfil">
+            <span class="nav-icon">👤</span>
+            <span>Perfil</span>
+          </button>
         </nav>
-      </header>
 
-      <!-- ============ LOGIN ============ -->
-      <main class="main" id="login-view">
-        <section class="card login-card">
-          <div class="login-layout">
+        <footer class="sidebar-footer">
+          <small>© 2024 DiverApp · Inclusión para todos</small>
+        </footer>
+      </aside>
 
-            <!-- Formulario -->
-            <div class="login-form">
-              <h1>Ingresá a diverApp</h1>
-              <p class="login-text">
-                Gestioná tus eventos, anotate en actividades y llevá tu agenda inclusiva en un solo lugar.
-              </p>
-
-              <form aria-label="Formulario de inicio de sesión" onsubmit="return false;">
-                <div class="campo">
-                  <label for="email-login">Correo electrónico</label>
-                  <input type="email" id="email-login" name="email-login" placeholder="tucorreo@ejemplo.com" />
-                </div>
-
-                <div class="campo">
-                  <label for="password-login">Contraseña</label>
-                  <input type="password" id="password-login" name="password-login" placeholder="••••••••" />
-                </div>
-
-                <p class="mensaje-error" id="login-error"></p>
-
-                <div class="login-actions">
-                  <button type="button" class="btn btn-primario" id="btn-login">
-                    Iniciar sesión
-                  </button>
-                </div>
-
-                <div class="login-links">
-                  <span class="login-note">
-                    Podés usar cualquier correo y contraseña. Es un login de prueba.
-                  </span>
-                </div>
-              </form>
-            </div>
-
-            <!-- Info lateral -->
-            <div class="login-info">
-              <h2>Agenda pensada para todas las personas</h2>
-              <p>
-                diverApp te ayuda a encontrar, organizar y recordar tus eventos
-                culturales, educativos, deportivos y tecnológicos en un mismo lugar.
-              </p>
-              <ul>
-                <li>✔ Login simple</li>
-                <li>✔ Carrusel de próximos eventos</li>
-                <li>✔ Filtros y “Mis eventos” funcionando</li>
-              </ul>
-            </div>
+      <!-- CONTENIDO PRINCIPAL -->
+      <div class="main-area">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-search">
+            <span class="search-icon">🔍</span>
+            <input
+              id="buscar-global"
+              type="text"
+              placeholder="Buscar eventos, ubicaciones..."
+            />
           </div>
-        </section>
-      </main>
 
-      <!-- ============ APP (solo logueado) ============ -->
-      <main class="main" id="app-view">
-
-        <!-- HOME: CARRUSEL -->
-        <section class="view" id="view-home">
-          <div class="card">
-            <div class="hero-home">
-              <h2>Próximos eventos</h2>
-              <p>Descubrí lo que se viene y anotate con un clic.</p>
+          <div class="topbar-user">
+            <div class="topbar-user-info">
+              <span class="topbar-user-name" id="nav-user">Usuario</span>
+              <span class="topbar-user-email" id="nav-user-email"
+                >usuario@email.com</span
+              >
             </div>
-
-            <div class="carrusel" id="carrusel-eventos" aria-label="Carrusel de próximos eventos">
-              <!-- Se completa con JS -->
-            </div>
+            <div class="topbar-avatar" id="topbar-avatar">U</div>
+            <button id="btn-logout" class="btn btn-ghost">Salir</button>
           </div>
-        </section>
+        </header>
 
-        <!-- LISTA + FILTROS -->
-        <section class="view" id="view-eventos">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Buscar y filtrar eventos</h2>
-              <span class="texto-secundario">
-                Usá la búsqueda y filtros. Los resultados se actualizan al instante.
-              </span>
+        <!-- VISTAS -->
+        <main class="views">
+          <!-- INICIO -->
+          <section class="view" id="view-inicio">
+            <h2 class="view-title">Inicio</h2>
+            <p class="view-text">
+              Bienvenido a DiverApp. Explorá eventos inclusivos, anotate y
+              gestioná tus actividades en un solo lugar.
+            </p>
+          </section>
+
+          <!-- EXPLORAR -->
+          <section class="view" id="view-explorar">
+            <h2 class="view-title">Explorar Eventos</h2>
+
+            <div class="explorar-filtros">
+              <div class="topbar-search secondary">
+                <span class="search-icon">🔍</span>
+                <input
+                  id="buscar-evento"
+                  type="text"
+                  placeholder="Buscar eventos..."
+                />
+              </div>
+
+              <div class="chip-group" id="chips-categorias">
+                <button class="chip is-active" data-cat="">Todos</button>
+                <button class="chip" data-cat="musica">Música</button>
+                <button class="chip" data-cat="arte">Arte</button>
+                <button class="chip" data-cat="deporte">Deporte</button>
+                <button class="chip" data-cat="teatro">Teatro</button>
+                <button class="chip" data-cat="cine">Cine</button>
+              </div>
             </div>
 
-            <div class="filtros-layout">
-              <!-- Filtros -->
-              <aside class="filtros-bar">
-                <div class="campo">
-                  <label for="buscar-evento">Buscar por título o descripción</label>
-                  <input type="text" id="buscar-evento" placeholder="Ej. 'lectura', 'festival', 'IA'..." />
-                </div>
+            <section
+              class="grid-eventos"
+              id="lista-eventos"
+              aria-label="Listado de eventos"
+            ></section>
+          </section>
 
-                <div class="campo">
-                  <label for="filtro-categoria">Categoría</label>
-                  <select id="filtro-categoria">
-                    <option value="">Todas</option>
-                    <option value="educativo">Educativo</option>
-                    <option value="cultural">Cultural</option>
-                    <option value="deportivo">Deportivo</option>
-                    <option value="tecnologico">Tecnológico</option>
-                  </select>
-                </div>
+          <!-- FAVORITOS -->
+          <section class="view" id="view-favoritos">
+            <h2 class="view-title">Mis Favoritos ❤️</h2>
+            <section
+              class="grid-eventos"
+              id="lista-favoritos"
+              aria-label="Eventos favoritos"
+            ></section>
+          </section>
 
-                <div class="campo">
-                  <label for="filtro-modalidad">Modalidad</label>
-                  <select id="filtro-modalidad">
-                    <option value="">Todas</option>
-                    <option value="presencial">Presencial</option>
-                    <option value="online">Online</option>
-                  </select>
-                </div>
+          <!-- MIS EVENTOS -->
+          <section class="view" id="view-mis-eventos">
+            <h2 class="view-title">Mis Eventos 📅</h2>
+            <div
+              class="lista-mis-eventos"
+              id="lista-mis-eventos"
+              aria-label="Eventos a los que estoy anotado"
+            ></div>
+          </section>
 
-                <button type="button" class="btn btn-secundario" id="btn-limpiar-filtros">
-                  Limpiar filtros
-                </button>
-              </aside>
-
-              <!-- Lista -->
-              <section class="lista-eventos-simple" aria-label="Listado de eventos" id="lista-eventos">
-                <!-- Se completa con JS -->
-              </section>
-            </div>
-          </div>
-        </section>
-
-        <!-- DETALLE DE EVENTO -->
-        <section class="view" id="view-detalle">
-          <div class="card">
-            <header class="detalle-header">
-              <h1 id="detalle-titulo">Título del evento</h1>
-              <div class="detalle-meta" id="detalle-meta"></div>
-            </header>
-
-            <section class="detalle-seccion">
-              <h2>Descripción</h2>
-              <p id="detalle-descripcion"></p>
-            </section>
-
-            <section class="detalle-seccion">
-              <h2>Información adicional</h2>
-              <ul id="detalle-extra"></ul>
-            </section>
-
-            <section class="detalle-seccion">
-              <h2>Estado de inscripción</h2>
-              <p class="texto-secundario" id="detalle-estado"></p>
-            </section>
-
-            <div class="detalle-acciones">
-              <button class="btn btn-primario" id="btn-toggle-inscripcion">
-                Anotarme al evento
-              </button>
-              <button class="btn btn-secundario" id="btn-volver-lista">
-                Volver a eventos
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!-- CREAR EVENTO -->
-        <section class="view" id="view-crear-evento">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Crear un nuevo evento</h2>
-              <span class="texto-secundario">
-                Completá los datos para añadir un nuevo evento a la agenda.
-              </span>
-            </div>
-            <form class="form-crear-evento" id="form-crear-evento" onsubmit="return false;">
-              <div class="campo">
-                <label for="crear-titulo">Título del evento</label>
+          <!-- CREAR EVENTO -->
+          <section class="view" id="view-crear-evento">
+            <h2 class="view-title">Crear Evento</h2>
+            <form id="form-crear-evento" class="crear-form">
+              <div class="field">
+                <span>Título del evento</span>
                 <input type="text" id="crear-titulo" required />
               </div>
-              <div class="campos-grid">
-                <div class="campo">
-                  <label for="crear-fecha">Fecha</label>
+
+              <div class="field-group">
+                <label class="field">
+                  <span>Fecha</span>
                   <input type="date" id="crear-fecha" required />
-                </div>
-                <div class="campo">
-                  <label for="crear-hora">Hora</label>
+                </label>
+                <label class="field">
+                  <span>Hora</span>
                   <input type="time" id="crear-hora" required />
-                </div>
+                </label>
               </div>
-              <div class="campo">
-                <label for="crear-lugar">Lugar o enlace</label>
-                <input type="text" id="crear-lugar" placeholder="Ej: Plaza Principal o https://zoom.us/..." required />
+
+              <div class="field">
+                <span>Ubicación</span>
+                <input
+                  type="text"
+                  id="crear-lugar"
+                  placeholder="Ej: Teatro Municipal"
+                  required
+                />
               </div>
-              <div class="campos-grid">
-                <div class="campo">
-                  <label for="crear-categoria">Categoría</label>
+
+              <div class="field-group">
+                <label class="field">
+                  <span>Categoría</span>
                   <select id="crear-categoria" required>
-                    <option value="educativo">Educativo</option>
-                    <option value="cultural">Cultural</option>
-                    <option value="deportivo">Deportivo</option>
-                    <option value="tecnologico">Tecnológico</option>
+                    <option value="musica">Música</option>
+                    <option value="arte">Arte</option>
+                    <option value="deporte">Deporte</option>
+                    <option value="teatro">Teatro</option>
+                    <option value="cine">Cine</option>
                   </select>
-                </div>
-                <div class="campo">
-                  <label for="crear-modalidad">Modalidad</label>
+                </label>
+                <label class="field">
+                  <span>Modalidad</span>
                   <select id="crear-modalidad" required>
                     <option value="presencial">Presencial</option>
                     <option value="online">Online</option>
                   </select>
-                </div>
+                </label>
               </div>
-              <div class="campo">
-                <label for="crear-descripcion">Descripción</label>
-                <textarea id="crear-descripcion" rows="4" required></textarea>
+
+              <div class="field">
+                <span>Descripción</span>
+                <textarea
+                  id="crear-descripcion"
+                  rows="4"
+                  required
+                ></textarea>
               </div>
+
               <p class="mensaje-error" id="crear-error"></p>
-              <button type="submit" class="btn btn-primario" id="btn-guardar-evento">Guardar Evento</button>
+
+              <button class="btn btn-primary" type="submit">
+                Guardar evento
+              </button>
             </form>
-          </div>
-        </section>
+          </section>
 
-        <!-- MIS EVENTOS -->
-        <section class="view" id="view-mis-eventos">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Mis eventos</h2>
-              <span class="texto-secundario">
-                Lista de eventos a los que te anotaste.
-              </span>
+          <!-- ACCESIBILIDAD -->
+          <section class="view" id="view-accesibilidad">
+            <h2 class="view-title">Accesibilidad</h2>
+            <p class="view-text">
+              Configuraciones de accesibilidad (texto grande, alto contraste,
+              etc.) – aquí podés agregar opciones más adelante.
+            </p>
+          </section>
+
+          <!-- PERFIL -->
+          <section class="view" id="view-perfil">
+            <h2 class="view-title">Perfil</h2>
+            <p class="view-text">
+              Información básica del usuario. Podés completar esta sección según
+              las necesidades del proyecto.
+            </p>
+          </section>
+
+          <!-- DETALLE DE EVENTO -->
+          <section class="view" id="view-detalle">
+            <button class="btn btn-ghost" id="btn-volver-lista">← Volver</button>
+
+            <div class="detalle-hero">
+              <div class="detalle-icono" id="detalle-icono">🎵</div>
             </div>
 
-            <div class="mis-eventos-lista" id="lista-mis-eventos">
-              <!-- Se completa con JS -->
+            <h2 id="detalle-titulo" class="detalle-titulo">
+              Título del evento
+            </h2>
+
+            <div class="detalle-tags" id="detalle-tags"></div>
+
+            <div class="detalle-grid">
+              <article class="detalle-card">
+                <h3>Fecha y Hora</h3>
+                <p id="detalle-fecha"></p>
+              </article>
+              <article class="detalle-card">
+                <h3>Ubicación</h3>
+                <p id="detalle-lugar"></p>
+              </article>
+              <article class="detalle-card">
+                <h3>Precio</h3>
+                <p id="detalle-precio">Entrada libre</p>
+              </article>
             </div>
-          </div>
-        </section>
-      </main>
+
+            <section class="detalle-bloque">
+              <h3>Descripción</h3>
+              <p id="detalle-descripcion"></p>
+            </section>
+
+            <section class="detalle-bloque">
+              <h3>Características de accesibilidad</h3>
+              <ul id="detalle-accesibilidad" class="lista-chip"></ul>
+            </section>
+
+            <div class="detalle-actions">
+              <button class="btn btn-primary" id="btn-toggle-inscripcion">
+                Reservar entrada
+              </button>
+              <button class="btn btn-secondary" id="btn-toggle-favorito">
+                ❤️ Agregar a favoritos
+              </button>
+            </div>
+
+            <p class="detalle-estado" id="detalle-estado"></p>
+          </section>
+        </main>
+      </div>
     </div>
 
-    <!-- ARCHIVO JS EXTERNO -->
-    <script src="JS/filtro.js"></script>
+    <!-- SCRIPTS -->
     <script src="JS/script.js"></script>
+    <script src="JS/filtros.js"></script>
+    <script src="JS/carrusel.js"></script>
+    <script src="JS/mis-eventos.js"></script>
+    <script src="JS/detalle.js"></script>
+    <script src="JS/inscripcion.js"></script>
+    <script src="JS/crear.js"></script>
+    <script src="JS/login.js"></script>
     <script src="JS/app.js"></script>
-
   </body>
-
 </html>

@@ -1,0 +1,523 @@
+:root {
+  --color-primario: #2563eb;
+  --color-secundario: #f97316;
+  --color-fondo: #f5f7fb;
+  --color-texto: #111827;
+  --color-borde: #e5e7eb;
+  --color-blanco: #ffffff;
+  --color-error: #dc2626;
+  --color-ok: #16a34a;
+  --radio: 12px;
+  --sombra: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.topbar {
+  background: var(--color-blanco);
+  box-shadow: var(--sombra);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blanco);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.nav-link:hover {
+  background: #e5edff;
+  border-color: #c7d2fe;
+}
+
+.nav-link-primario {
+  background: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.nav-link-primario:hover {
+  background: #1d4ed8;
+}
+
+.nav-user {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--color-blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* LOGIN */
+.login-card {
+  padding: 2rem;
+}
+
+.login-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.login-form h1 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.7rem;
+}
+
+.login-text {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-borde);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.campo input:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.btn-primario {
+  background: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+  background: #1d4ed8;
+}
+
+.btn-secundario {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn-secundario:hover {
+  background: #d1d5db;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.login-links {
+  margin-top: 0.75rem;
+}
+
+.login-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.mensaje-error {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-error);
+}
+
+/* Info lateral */
+.login-info {
+  background: #eff4ff;
+  border-radius: var(--radio);
+  padding: 1.25rem 1.5rem;
+}
+
+.login-info h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.login-info p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.login-info ul {
+  padding-left: 1.1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.login-info li {
+  margin-bottom: 0.3rem;
+}
+
+/* VISTAS APP */
+.view {
+  display: none;
+  margin-bottom: 1.5rem;
+}
+
+.hero-home {
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.hero-home h2 {
+  margin: 0 0 0.3rem;
+}
+
+.hero-home p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* Carrusel */
+.carrusel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.carrusel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carrusel::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 999px;
+}
+
+.tarjeta-evento {
+  min-width: 260px;
+  max-width: 280px;
+  background: var(--color-blanco);
+  border-radius: var(--radio);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tarjeta-evento h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.evento-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 0.6rem;
+}
+
+.evento-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Lista + filtros */
+.card-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.texto-secundario {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.filtros-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 1.25rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.filtros-bar {
+  padding: 1rem;
+  border-radius: var(--radio);
+  border: 1px solid var(--color-borde);
+  background: #f9fafb;
+}
+
+.lista-eventos-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-evento {
+  border-radius: var(--radio);
+  border: 1px solid var(--color-borde);
+  background: var(--color-blanco);
+  padding: 0.9rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.item-evento h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.item-evento-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.item-evento-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Detalle */
+.detalle-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.detalle-header h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.6rem;
+}
+
+.detalle-meta {
+  font-size: 0.9rem;
+  color: #4b5563;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.detalle-seccion {
+  padding: 0.75rem 1.5rem;
+}
+
+.detalle-seccion h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.detalle-acciones {
+  padding: 0.75rem 1.5rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.texto-resaltado {
+  font-weight: 600;
+}
+
+/* Mis eventos */
+.mis-eventos-lista {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mis-evento-item {
+  border-radius: var(--radio);
+  border: 1px solid var(--color-borde);
+  background: var(--color-blanco);
+  padding: 0.9rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mis-evento-item h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+}
+
+.mis-evento-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.mis-evento-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.estado-chip {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}
+
+/* Formulario crear evento */
+.form-crear-evento {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.campos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-crear-evento textarea {
+  resize: vertical;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .login-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .login-info {
+    display: none;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filtros-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .item-evento,
+  .mis-evento-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campos-grid {
+    grid-template-columns: 1fr;
+  }
+}

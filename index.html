@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>diverApp - Agenda de eventos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+
+      <!-- ============ HEADER (solo logueado) ============ -->
+      <header class="topbar" id="app-header">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">dA</div>
+          <div>
+            <div class="brand-name">diverApp</div>
+            <div class="brand-subtitle">Agenda inclusiva de eventos</div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Navegación principal">
+          <button class="nav-link" data-view="home">Inicio</button>
+          <button class="nav-link" data-view="eventos">Eventos</button>
+          <button class="nav-link" data-view="mis-eventos">Mis eventos</button>
+          <button class="nav-link" data-view="crear-evento">Crear Evento</button>
+          <span class="nav-user" id="nav-user"></span>
+          <button class="nav-link nav-link-primario" id="btn-logout">Salir</button>
+        </nav>
+      </header>
+
+      <!-- ============ LOGIN ============ -->
+      <main class="main" id="login-view">
+        <section class="card login-card">
+          <div class="login-layout">
+
+            <!-- Formulario -->
+            <div class="login-form">
+              <h1>Ingresá a diverApp</h1>
+              <p class="login-text">
+                Gestioná tus eventos, anotate en actividades y llevá tu agenda inclusiva en un solo lugar.
+              </p>
+
+              <form aria-label="Formulario de inicio de sesión" onsubmit="return false;">
+                <div class="campo">
+                  <label for="email-login">Correo electrónico</label>
+                  <input type="email" id="email-login" name="email-login" placeholder="tucorreo@ejemplo.com" />
+                </div>
+
+                <div class="campo">
+                  <label for="password-login">Contraseña</label>
+                  <input type="password" id="password-login" name="password-login" placeholder="••••••••" />
+                </div>
+
+                <p class="mensaje-error" id="login-error"></p>
+
+                <div class="login-actions">
+                  <button type="button" class="btn btn-primario" id="btn-login">
+                    Iniciar sesión
+                  </button>
+                </div>
+
+                <div class="login-links">
+                  <span class="login-note">
+                    Podés usar cualquier correo y contraseña. Es un login de prueba.
+                  </span>
+                </div>
+              </form>
+            </div>
+
+            <!-- Info lateral -->
+            <div class="login-info">
+              <h2>Agenda pensada para todas las personas</h2>
+              <p>
+                diverApp te ayuda a encontrar, organizar y recordar tus eventos
+                culturales, educativos, deportivos y tecnológicos en un mismo lugar.
+              </p>
+              <ul>
+                <li>✔ Login simple</li>
+                <li>✔ Carrusel de próximos eventos</li>
+                <li>✔ Filtros y “Mis eventos” funcionando</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ============ APP (solo logueado) ============ -->
+      <main class="main" id="app-view">
+
+        <!-- HOME: CARRUSEL -->
+        <section class="view" id="view-home">
+          <div class="card">
+            <div class="hero-home">
+              <h2>Próximos eventos</h2>
+              <p>Descubrí lo que se viene y anotate con un clic.</p>
+            </div>
+
+            <div class="carrusel" id="carrusel-eventos" aria-label="Carrusel de próximos eventos">
+              <!-- Se completa con JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- LISTA + FILTROS -->
+        <section class="view" id="view-eventos">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Buscar y filtrar eventos</h2>
+              <span class="texto-secundario">
+                Usá la búsqueda y filtros. Los resultados se actualizan al instante.
+              </span>
+            </div>
+
+            <div class="filtros-layout">
+              <!-- Filtros -->
+              <aside class="filtros-bar">
+                <div class="campo">
+                  <label for="buscar-evento">Buscar por título o descripción</label>
+                  <input type="text" id="buscar-evento" placeholder="Ej. 'lectura', 'festival', 'IA'..." />
+                </div>
+
+                <div class="campo">
+                  <label for="filtro-categoria">Categoría</label>
+                  <select id="filtro-categoria">
+                    <option value="">Todas</option>
+                    <option value="educativo">Educativo</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="deportivo">Deportivo</option>
+                    <option value="tecnologico">Tecnológico</option>
+                  </select>
+                </div>
+
+                <div class="campo">
+                  <label for="filtro-modalidad">Modalidad</label>
+                  <select id="filtro-modalidad">
+                    <option value="">Todas</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="online">Online</option>
+                  </select>
+                </div>
+
+                <button type="button" class="btn btn-secundario" id="btn-limpiar-filtros">
+                  Limpiar filtros
+                </button>
+              </aside>
+
+              <!-- Lista -->
+              <section class="lista-eventos-simple" aria-label="Listado de eventos" id="lista-eventos">
+                <!-- Se completa con JS -->
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <!-- DETALLE DE EVENTO -->
+        <section class="view" id="view-detalle">
+          <div class="card">
+            <header class="detalle-header">
+              <h1 id="detalle-titulo">Título del evento</h1>
+              <div class="detalle-meta" id="detalle-meta"></div>
+            </header>
+
+            <section class="detalle-seccion">
+              <h2>Descripción</h2>
+              <p id="detalle-descripcion"></p>
+            </section>
+
+            <section class="detalle-seccion">
+              <h2>Información adicional</h2>
+              <ul id="detalle-extra"></ul>
+            </section>
+
+            <section class="detalle-seccion">
+              <h2>Estado de inscripción</h2>
+              <p class="texto-secundario" id="detalle-estado"></p>
+            </section>
+
+            <div class="detalle-acciones">
+              <button class="btn btn-primario" id="btn-toggle-inscripcion">
+                Anotarme al evento
+              </button>
+              <button class="btn btn-secundario" id="btn-volver-lista">
+                Volver a eventos
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CREAR EVENTO -->
+        <section class="view" id="view-crear-evento">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Crear un nuevo evento</h2>
+              <span class="texto-secundario">
+                Completá los datos para añadir un nuevo evento a la agenda.
+              </span>
+            </div>
+            <form class="form-crear-evento" id="form-crear-evento" onsubmit="return false;">
+              <div class="campo">
+                <label for="crear-titulo">Título del evento</label>
+                <input type="text" id="crear-titulo" required />
+              </div>
+              <div class="campos-grid">
+                <div class="campo">
+                  <label for="crear-fecha">Fecha</label>
+                  <input type="date" id="crear-fecha" required />
+                </div>
+                <div class="campo">
+                  <label for="crear-hora">Hora</label>
+                  <input type="time" id="crear-hora" required />
+                </div>
+              </div>
+              <div class="campo">
+                <label for="crear-lugar">Lugar o enlace</label>
+                <input type="text" id="crear-lugar" placeholder="Ej: Plaza Principal o https://zoom.us/..." required />
+              </div>
+              <div class="campos-grid">
+                <div class="campo">
+                  <label for="crear-categoria">Categoría</label>
+                  <select id="crear-categoria" required>
+                    <option value="educativo">Educativo</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="deportivo">Deportivo</option>
+                    <option value="tecnologico">Tecnológico</option>
+                  </select>
+                </div>
+                <div class="campo">
+                  <label for="crear-modalidad">Modalidad</label>
+                  <select id="crear-modalidad" required>
+                    <option value="presencial">Presencial</option>
+                    <option value="online">Online</option>
+                  </select>
+                </div>
+              </div>
+              <div class="campo">
+                <label for="crear-descripcion">Descripción</label>
+                <textarea id="crear-descripcion" rows="4" required></textarea>
+              </div>
+              <p class="mensaje-error" id="crear-error"></p>
+              <button type="submit" class="btn btn-primario" id="btn-guardar-evento">Guardar Evento</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- MIS EVENTOS -->
+        <section class="view" id="view-mis-eventos">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Mis eventos</h2>
+              <span class="texto-secundario">
+                Lista de eventos a los que te anotaste.
+              </span>
+            </div>
+
+            <div class="mis-eventos-lista" id="lista-mis-eventos">
+              <!-- Se completa con JS -->
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ARCHIVO JS EXTERNO -->
+    <script src="JS/filtro.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="JS/app.js"></script>
+
+  </body>
+
+</html>

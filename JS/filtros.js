@@ -1,19 +1,15 @@
 function filtrarEventos(lista, texto, categoria) {
-  const t = (texto || "").toLowerCase();
-  const cat = categoria || "";
+  const q = texto.toLowerCase().trim();
 
   return lista.filter((ev) => {
     const coincideTexto =
-      !t ||
-      ev.titulo.toLowerCase().includes(t) ||
-      ev.descripcion.toLowerCase().includes(t) ||
-      ev.lugar.toLowerCase().includes(t);
+      ev.titulo.toLowerCase().includes(q) ||
+      ev.descripcion.toLowerCase().includes(q) ||
+      ev.lugar.toLowerCase().includes(q);
 
-    const coincideCat = !cat || ev.categoria === cat;
+    const coincideCategoria =
+      !categoria || categoria === "" || ev.categoria === categoria;
 
-    return coincideTexto && coincideCat;
+    return coincideTexto && coincideCategoria;
   });
 }
-
-// global
-window.filtrarEventos = filtrarEventos;

@@ -1,37 +1,44 @@
 function renderMisEventos() {
+  if (!listaMisEventos) return;
   listaMisEventos.innerHTML = "";
 
-  const mis = eventos.filter((ev) => eventosInscritos.includes(ev.id));
-  if (!mis.length) {
+  const mis = eventos.filter((ev) => eventosInscripto.includes(ev.id));
+
+  if (mis.length === 0) {
     listaMisEventos.innerHTML =
-      "<p class='view-text'>Todavía no te anotaste a ningún evento.</p>";
+      "<p class='text-muted'>Todavía no te anotaste a ningún evento.</p>";
     return;
   }
 
   mis.forEach((ev) => {
-    const row = document.createElement("article");
-    row.className = "item-mis-evento";
-    row.innerHTML = `
-      <div class="item-mis-evento-main">
-        <div class="item-mis-evento-icon">${ev.icono || "🎫"}</div>
+    const item = document.createElement("article");
+    item.className = "card";
+
+    item.innerHTML = `
+      <div class="card-body d-flex justify-content-between align-items-center">
         <div>
-          <div>${ev.titulo}</div>
-          <div class="item-mis-evento-meta">
-            ${ev.lugar} · ${formatearFecha(ev.fecha)} · ${ev.hora}
-          </div>
+          <h3 class="h6 mb-1">${ev.titulo}</h3>
+          <p class="mb-0 text-muted small">
+            📅 ${formatearFecha(ev.fecha)} · ${ev.hora} · 📍 ${ev.lugar}
+          </p>
+        </div>
+        <div class="d-flex gap-2">
+          <button
+            class="btn btn-outline-secondary btn-sm"
+            data-detalle-id="${ev.id}"
+          >
+            Ver detalle
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            data-inscribir-id="${ev.id}"
+          >
+            Cancelar
+          </button>
         </div>
       </div>
-      <div class="item-mis-evento-actions">
-        <button class="btn btn-secondary" data-detalle-id="${ev.id}">
-          Ver detalles
-        </button>
-        <button class="btn btn-ghost" data-inscribir-id="${ev.id}">
-          Cancelar
-        </button>
-      </div>
     `;
-    listaMisEventos.appendChild(row);
+
+    listaMisEventos.appendChild(item);
   });
 }
-
-window.renderMisEventos = renderMisEventos;

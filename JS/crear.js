@@ -1,5 +1,4 @@
-function guardarNuevoEvento(e) {
-  e.preventDefault();
+function guardarNuevoEvento() {
   crearError.textContent = "";
 
   const titulo = crearTitulo.value.trim();
@@ -11,28 +10,24 @@ function guardarNuevoEvento(e) {
   const descripcion = crearDescripcion.value.trim();
 
   if (!titulo || !fecha || !hora || !lugar || !descripcion) {
-    crearError.textContent = "Por favor completá todos los campos.";
+    crearError.textContent = "Por favor, completá todos los campos.";
     return;
   }
 
   const nuevoEvento = {
     id: Date.now(),
     titulo,
+    categoria,
     fecha,
     hora,
     lugar,
-    categoria,
     modalidad,
     descripcion,
-    icono: "🎫",
-    accesibilidad: ["Accesible"],
   };
 
-  eventos.push(nuevoEvento);
+  eventos.unshift(nuevoEvento);
 
   formCrearEvento.reset();
-  renderExplorarEventos();
   cambiarVista("explorar");
+  renderExplorarEventos();
 }
-
-window.guardarNuevoEvento = guardarNuevoEvento;

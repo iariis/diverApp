@@ -1,35 +1,18 @@
 function toggleInscripcion(id) {
-  const idx = eventosInscritos.indexOf(id);
-  if (idx === -1) {
-    eventosInscritos.push(id);
+  const index = eventosInscripto.indexOf(id);
+
+  if (index === -1) {
+    eventosInscripto.push(id);
   } else {
-    eventosInscritos.splice(idx, 1);
+    eventosInscripto.splice(index, 1);
   }
 
+  // Actualizamos vistas dependientes
+  renderInicio();
   renderExplorarEventos();
   renderMisEventos();
-  renderFavoritos();
 
   if (eventoSeleccionado && eventoSeleccionado.id === id) {
-    abrirDetalle(id);
+    abrirDetalle(id); // refresca estado
   }
 }
-
-function toggleFavorito(id) {
-  const idx = eventosFavoritos.indexOf(id);
-  if (idx === -1) {
-    eventosFavoritos.push(id);
-  } else {
-    eventosFavoritos.splice(idx, 1);
-  }
-
-  renderExplorarEventos();
-  renderFavoritos();
-
-  if (eventoSeleccionado && eventoSeleccionado.id === id) {
-    abrirDetalle(id);
-  }
-}
-
-window.toggleInscripcion = toggleInscripcion;
-window.toggleFavorito = toggleFavorito;

@@ -5,23 +5,15 @@ function manejarLogin() {
   loginError.textContent = "";
 
   if (!email || !pass) {
-    loginError.textContent = "Completá correo y contraseña.";
+    loginError.textContent = "Por favor completá correo y contraseña.";
     return;
   }
 
-  // login de prueba
-  usuarioActual = email.split("@")[0] || "Usuario";
-  usuarioEmailActual = email;
-
+  // Login de prueba: acepta cualquier usuario
+  usuarioActual = email;
   mostrarApp();
-  renderExplorarEventos();
-  renderMisEventos();
-  renderFavoritos();
 }
 
 function manejarLogout() {
   mostrarLogin();
 }
-
-window.manejarLogin = manejarLogin;
-window.manejarLogout = manejarLogout;

@@ -1,86 +1,33 @@
-function renderExplorarEventos() {
-  const texto = buscarEventoInput.value;
-  const filtrados = filtrarEventos(eventos, texto, categoriaSeleccionada);
+function renderInicio() {
+  if (!listaInicio) return;
+  listaInicio.innerHTML = "";
 
-  listaEventos.innerHTML = "";
-  if (!filtrados.length) {
-    listaEventos.innerHTML =
-      "<p class='view-text'>No se encontraron eventos.</p>";
-    return;
-  }
+  // Tomamos los 3 primeros eventos como ejemplo
+  const proximos = eventos.slice(0, 3);
 
-  filtrados.forEach((ev) => {
+  proximos.forEach((ev) => {
     const card = document.createElement("article");
-    card.className = "card-evento";
+    card.className = "col-md-4";
+
     card.innerHTML = `
-      <div class="card-evento-header">${ev.icono || "🎫"}</div>
-      <div class="card-evento-body">
-        <div class="card-evento-title">${ev.titulo}</div>
-        <div class="card-evento-meta">
-          ${ev.lugar} · ${formatearFecha(ev.fecha)}
-        </div>
-        <div class="card-evento-tags">
-          <span class="chip-small">Accesible</span>
-          ${
-            ev.modalidad === "online"
-              ? '<span class="chip-small">Online</span>'
-              : '<span class="chip-small">Presencial</span>'
-          }
-        </div>
-        <div class="card-evento-actions">
-          <button class="btn btn-secondary" data-detalle-id="${ev.id}">
-            Ver detalles
-          </button>
-          <button class="btn btn-primary" data-inscribir-id="${ev.id}">
-            ${
-              eventosInscritos.includes(ev.id)
-                ? "Cancelar"
-                : "Reservar entrada"
-            }
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <h3 class="h6 mb-2">${ev.titulo}</h3>
+          <p class="mb-1 text-muted">
+            📅 ${formatearFecha(ev.fecha)} · ${ev.hora}
+          </p>
+          <p class="mb-1 text-muted">📍 ${ev.lugar}</p>
+          <p class="small flex-grow-1">${ev.descripcion.substring(0, 80)}...</p>
+          <button
+            class="btn btn-outline-primary btn-sm mt-2"
+            data-detalle-id="${ev.id}"
+          >
+            Ver detalle
           </button>
         </div>
       </div>
     `;
-    listaEventos.appendChild(card);
+
+    listaInicio.appendChild(card);
   });
 }
-
-function renderFavoritos() {
-  listaFavoritos.innerHTML = "";
-
-  const favs = eventos.filter((ev) => eventosFavoritos.includes(ev.id));
-  if (!favs.length) {
-    listaFavoritos.innerHTML =
-      "<p class='view-text'>Todavía no tienes eventos favoritos.</p>";
-    return;
-  }
-
-  favs.forEach((ev) => {
-    const card = document.createElement("article");
-    card.className = "card-evento";
-    card.innerHTML = `
-      <div class="card-evento-header">${ev.icono || "🎫"}</div>
-      <div class="card-evento-body">
-        <div class="card-evento-title">${ev.titulo}</div>
-        <div class="card-evento-meta">
-          ${ev.lugar} · ${formatearFecha(ev.fecha)}
-        </div>
-        <div class="card-evento-tags">
-          <span class="chip-small">Accesible</span>
-        </div>
-        <div class="card-evento-actions">
-          <button class="btn btn-secondary" data-detalle-id="${ev.id}">
-            Ver detalles
-          </button>
-          <button class="btn btn-secondary" data-favorito-id="${ev.id}">
-            Quitar favorito
-          </button>
-        </div>
-      </div>
-    `;
-    listaFavoritos.appendChild(card);
-  });
-}
-
-window.renderExplorarEventos = renderExplorarEventos;
-window.renderFavoritos = renderFavoritos;

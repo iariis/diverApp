@@ -157,17 +157,4 @@ Presentar un proyecto completo, ordenado y funcional.
 
 Sofi · Erika · Iara · Dal · Flor · Vale · Verónica🎯 Objetivo del proyecto
 
-Aprender a trabajar en equipo.
 
-Dividir tareas reales de desarrollo web.
-
-Unificar funcionalidades en una sola app.
-
-Presentar un proyecto completo, ordenado y funcional.
-
-✨ Equipo
-
-Sofi · Erika · Iara · Dal · Flor · Vale · Verónica
-
-
-```

@@ -1,4 +1,4 @@
-// =============== DATOS DE EJEMPLO ===============
+// DATOS DE EJEMPLO 
 const eventos = [
   {
     id: 1,
@@ -42,13 +42,13 @@ const eventos = [
   },
 ];
 
-// =============== ESTADO GLOBAL ===============
+// ESTADO GLOBAL
 let usuarioActual = null;
 let eventosInscripto = []; // array de IDs de eventos
 let eventoSeleccionado = null;
 let categoriaSeleccionada = "";
 
-// =============== REFERENCIAS DOM ===============
+// REFERENCIAS DOM
 const loginView = document.getElementById("login-view");
 const appView = document.getElementById("app-view");
 
@@ -105,7 +105,7 @@ const detalleModalidad = document.getElementById("detalle-modalidad");
 const detalleDescripcion = document.getElementById("detalle-descripcion");
 const detalleEstado = document.getElementById("detalle-estado");
 
-// =============== FUNCIONES GENERALES ===============
+// FUNCIONES GENERALES 
 function formatearFecha(fechaISO) {
   const f = new Date(fechaISO);
   return f.toLocaleDateString("es-AR", {

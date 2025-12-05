@@ -16,7 +16,7 @@ navButtons.forEach((btn) => {
     if (vista === "inicio") renderInicio();
     if (vista === "explorar") renderExplorarEventos();
     if (vista === "mis-eventos") renderMisEventos();
-    // Crear evento no necesita render especial
+    // Crear evento 
   });
 });
 
@@ -46,7 +46,7 @@ if (chipsCategorias) {
   });
 }
 
-// Delegación clicks en listas (inicio + explorar + mis eventos)
+// clicks en listas (inicio + explorar + mis eventos)
 [listaInicio, listaEventos, listaMisEventos]
   .filter(Boolean)
   .forEach((contenedor) => {

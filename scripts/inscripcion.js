@@ -1,18 +1,19 @@
+/* scripts/inscripcion.js */
 function toggleInscripcion(id) {
-  const index = eventosInscripto.indexOf(id);
-
-  if (index === -1) {
+  const idx = eventosInscripto.indexOf(id);
+  if (idx === -1) {
     eventosInscripto.push(id);
   } else {
-    eventosInscripto.splice(index, 1);
+    eventosInscripto.splice(idx, 1);
   }
 
-  // Actualizamos vistas dependientes
-  renderInicio();
-  renderExplorarEventos();
-  renderMisEventos();
+  // refrescar UI
+  if (typeof renderCarruselInicio === "function") renderCarruselInicio();
+  if (typeof renderEventos === "function") renderEventos();
+  if (typeof renderMisEventos === "function") renderMisEventos();
 
-  if (eventoSeleccionado && eventoSeleccionado.id === id) {
-    abrirDetalle(id); // refresca estado
+  // si el detalle está abierto y es el mismo evento, reabrir para actualizar texto
+  if (eventoSeleccionado && eventoSeleccionado.id === id && typeof abrirDetalle === "function") {
+    abrirDetalle(id);
   }
 }

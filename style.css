@@ -262,3 +262,61 @@ body {
     width: 100% !important;
   }
 }
+
+/* =========================
+   Ajustes necesarios para layout + carrusel
+   ========================= */
+
+/* Sidebar fija y espacio para el main (evita que el contenido quede debajo) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1020; /* por encima del contenido, debajo del topbar si se necesitara */
+}
+
+/* Dejar espacio al main para que no quede debajo de la sidebar */
+.main-area {
+  margin-left: 260px; /* mismo ancho que .sidebar */
+  min-height: 100vh;
+}
+
+/* En pantallas pequeñas (mobile) la sidebar aparece como bloque normal y el main pierde margen */
+@media (max-width: 900px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+  }
+  .main-area {
+    margin-left: 0;
+  }
+}
+
+/* Carrusel horizontal (scroller dentro de #lista-inicio) */
+#lista-inicio > div {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Estética de la scrollbar (solo WebKit) */
+#lista-inicio > div::-webkit-scrollbar {
+  height: 8px;
+}
+#lista-inicio > div::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 4px;
+}
+
+/* Pequeña mejora visual en imágenes de tarjetas para mantener altura uniforme */
+.card-img-top {
+  object-fit: cover;
+  height: 160px;
+}
+
+/* Aumentar contraste de botones activos en sidebar (si Bootstrap los pisa) */
+.sidebar-nav .nav-item.active,
+.sidebar-nav .nav-item.active:focus,
+.sidebar-nav .nav-item.active:hover {
+  background: #e5e7eb;
+  color: #111827;
+}

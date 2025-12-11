@@ -4,452 +4,219 @@
       <meta charset="UTF-8" />
       <title>DiverApp - Eventos inclusivos</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-      />
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <!-- Tu CSS -->
       <link rel="stylesheet" href="style.css" />
     </head>
 
     <body class="bg-light">
-      <!--LOGIN -->
-      <main
-        id="login-view"
-        class="login-wrapper d-flex align-items-center justify-content-center min-vh-100"
-      >
+      <!-- ====== LOGIN ====== -->
+      <main id="login-view" class="login-wrapper d-flex align-items-center justify-content-center min-vh-100">
         <section class="login-card card shadow p-4 p-md-5 text-center">
           <div class="login-logo display-6 mb-2">🌈</div>
           <h1 class="login-title h3 mb-1">DiverApp</h1>
-          <p class="login-subtitle text-muted mb-4">
-            Eventos inclusivos para todos
-          </p>
+          <p class="login-subtitle text-muted mb-4">Eventos inclusivos para todos</p>
 
           <form class="login-form" onsubmit="return false;">
             <div class="mb-3 text-start">
-              <label class="field form-label">
+              <label class="form-label">
                 <span class="d-block mb-1">Email</span>
-                <input
-                  type="email"
-                  id="email-login"
-                  class="form-control"
-                  placeholder="tu@email.com"
-                  autocomplete="email"
-                />
+                <input type="email" id="email-login" class="form-control" placeholder="tu@email.com" />
               </label>
             </div>
 
             <div class="mb-3 text-start">
-              <label class="field form-label">
+              <label class="form-label">
                 <span class="d-block mb-1">Contraseña</span>
-                <input
-                  type="password"
-                  id="password-login"
-                  class="form-control"
-                  placeholder="••••••••"
-                  autocomplete="current-password"
-                />
+                <input type="password" id="password-login" class="form-control" placeholder="••••••••" />
               </label>
             </div>
 
-            <p class="mensaje-error text-danger small mb-3" id="login-error"></p>
+            <p id="login-error" class="text-danger small mb-3"></p>
 
-            <button
-              type="button"
-              class="btn btn-primary w-100 mb-3"
-              id="btn-login"
-            >
-              Iniciar sesión
-            </button>
+            <button type="button" class="btn btn-primary w-100 mb-3" id="btn-login">Iniciar sesión</button>
 
-            <div
-              class="login-links d-flex flex-column flex-md-row justify-content-between gap-2 small"
-            >
-              <a href="#" class="link text-decoration-none">¿Olvidaste tu contraseña?</a>
-              <a href="#" class="link text-decoration-none"
-                >¿No tienes cuenta? Crear cuenta</a
-              >
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+              <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+              <a href="#" class="text-decoration-none">¿No tienes cuenta? Crear cuenta</a>
             </div>
           </form>
         </section>
       </main>
 
-      <!-- APP -->
-      <div
-        id="app-view"
-        class="app-layout d-none min-vh-100"
-      >
+      <!-- ====== APP ====== -->
+      <div id="app-view" class="app-layout d-none min-vh-100">
         <!-- SIDEBAR -->
         <aside class="sidebar bg-dark text-light d-flex flex-column p-3">
           <div class="sidebar-header d-flex align-items-center mb-4">
-            <div
-              class="sidebar-logo bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
-              style="width: 40px; height: 40px;"
-            >
-              🌈
-            </div>
+            <div class="sidebar-logo bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width:40px;height:40px">🌈</div>
             <div>
-              <div class="sidebar-title fw-semibold">DiverApp</div>
-              <p class="sidebar-subtitle small mb-0">
-                Eventos inclusivos para todos
-              </p>
+              <div class="fw-semibold">DiverApp</div>
+              <p class="small text-muted mb-0">Eventos inclusivos para todos</p>
             </div>
           </div>
 
-          <nav class="sidebar-nav nav nav-pills flex-column mb-auto">
-            <button
-              class="nav-item btn btn-outline-light text-start mb-2 d-flex align-items-center gap-2 active"
-              data-view="inicio"
-            >
-              <span class="nav-icon">🏠</span>
-              <span>Inicio</span>
-            </button>
-            <button
-              class="nav-item btn btn-outline-light text-start mb-2 d-flex align-items-center gap-2"
-              data-view="explorar"
-            >
-              <span class="nav-icon">🔍</span>
-              <span>Explorar</span>
-            </button>
-            <button
-              class="nav-item btn btn-outline-light text-start mb-2 d-flex align-items-center gap-2"
-              data-view="mis-eventos"
-            >
-              <span class="nav-icon">📅</span>
-              <span>Mis Eventos</span>
-            </button>
-            <button
-              class="nav-item btn btn-outline-light text-start d-flex align-items-center gap-2"
-              data-view="crear-evento"
-            >
-              <span class="nav-icon">➕</span>
-              <span>Crear Evento</span>
-            </button>
+          <nav class="nav nav-pills flex-column mb-auto">
+            <button class="nav-item btn btn-outline-light text-start mb-2 active" data-view="inicio">🏠 Inicio</button>
+            <button class="nav-item btn btn-outline-light text-start mb-2" data-view="mis-eventos">📅 Mis Eventos</button>
+            <button class="nav-item btn btn-outline-light text-start" data-view="crear-evento">➕ Crear Evento</button>
           </nav>
 
-          <footer class="sidebar-footer mt-4">
-            <small class="text-muted"
-              >© 2024 DiverApp · Inclusión para todos</small
-            >
+          <footer class="mt-4">
+            <small class="text-muted">© 2024 DiverApp · Inclusión para todos</small>
           </footer>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- MAIN AREA -->
         <div class="main-area flex-grow-1 d-flex flex-column bg-white">
           <!-- TOPBAR -->
-          <header
-            class="topbar d-flex justify-content-between align-items-center border-bottom px-3 px-md-4 py-2"
-          >
-            <div class="topbar-search input-group w-50">
-              <span class="input-group-text bg-white border-end-0">
-                🔍
-              </span>
-              <input
-                id="buscar-global"
-                type="text"
-                class="form-control border-start-0"
-                placeholder="Buscar eventos, ubicaciones..."
-              />
+          <header class="topbar d-flex justify-content-between align-items-center border-bottom px-3 px-md-4 py-2">
+            <div class="input-group w-50">
+              <span class="input-group-text bg-white border-end-0">🔍</span>
+              <input id="buscar-global" type="text" class="form-control border-start-0" placeholder="Buscar eventos, ubicaciones..." />
             </div>
 
-            <div class="topbar-user d-flex align-items-center gap-3">
-              <div class="topbar-user-info text-end">
-                <span class="topbar-user-name fw-semibold d-block" id="nav-user"
-                  >Usuario</span
-                >
-                <span
-                  class="topbar-user-email text-muted small"
-                  id="nav-user-email"
-                  >usuario@email.com</span
-                >
+            <div class="d-flex align-items-center gap-3">
+              <div class="text-end">
+                <span id="nav-user" class="fw-semibold d-block">Usuario</span>
+                <span id="nav-user-email" class="text-muted small">usuario@email.com</span>
               </div>
-              <div
-                class="topbar-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                id="topbar-avatar"
-                style="width: 36px; height: 36px;"
-              >
-                U
-              </div>
-              <button id="btn-logout" class="btn btn-outline-secondary btn-sm">
-                Salir
-              </button>
+              <div id="topbar-avatar" class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:36px;height:36px">U</div>
+              <button id="btn-logout" class="btn btn-outline-secondary btn-sm">Salir</button>
             </div>
           </header>
 
-          <!-- VISTAS -->
+          <!-- VIEWS -->
           <main class="views flex-grow-1 overflow-auto p-3 p-md-4">
-            <!-- INICIO -->
+            <!-- INICIO (carrusel + grilla) -->
             <section class="view" id="view-inicio">
-              <h2 class="view-title h4 mb-3">Inicio</h2>
-              <p class="view-text text-muted">
-                Bienvenido a DiverApp. Explorá eventos inclusivos, anotate y
-                gestioná tus actividades en un solo lugar.
-              </p>
+              <h2 class="h4 mb-3">Inicio</h2>
+              <p class="text-muted mb-3">Bienvenido. Descubrí y anotate en eventos inclusivos.</p>
 
-              <section
-                id="lista-inicio"
-                class="row g-3 mt-3"
-                aria-label="Próximos eventos"
-              ></section>
-            </section>
+              <!-- CARRUSEL HORIZONTAL -->
+              <section id="lista-inicio" class="mb-4"></section>
 
-            <!-- EXPLORAR -->
-            <section class="view" id="view-explorar" style="display:none">
-              <h2 class="view-title h4 mb-3">Explorar Eventos</h2>
-
-              <div class="explorar-filtros mb-3">
-                <div class="input-group mb-3">
-                  <span class="input-group-text bg-white border-end-0">🔍</span>
-                  <input
-                    id="buscar-evento"
-                    type="text"
-                    class="form-control border-start-0"
-                    placeholder="Buscar eventos..."
-                  />
-                </div>
-
-                <div
-                  class="chip-group d-flex flex-wrap gap-2 mt-2"
-                  id="chips-categorias"
-                >
-                  <button
-                    class="chip btn btn-primary btn-sm"
-                    data-cat=""
-                  >
-                    Todos
-                  </button>
-                  <button class="chip btn btn-outline-primary btn-sm" data-cat="musica">
-                    Música
-                  </button>
-                  <button class="chip btn btn-outline-primary btn-sm" data-cat="arte">
-                    Arte
-                  </button>
-                  <button class="chip btn btn-outline-primary btn-sm" data-cat="deporte">
-                    Deporte
-                  </button>
-                  <button class="chip btn btn-outline-primary btn-sm" data-cat="teatro">
-                    Teatro
-                  </button>
-                  <button class="chip btn btn-outline-primary btn-sm" data-cat="cine">
-                    Cine
-                  </button>
-                </div>
-              </div>
-
-              <section
-                class="grid-eventos row g-3"
-                id="lista-eventos"
-                aria-label="Listado de eventos"
-              ></section>
+              <!-- GRILLA PRINCIPAL -->
+              <section id="lista-eventos" class="row g-3" aria-label="Listado de eventos"></section>
             </section>
 
             <!-- MIS EVENTOS -->
             <section class="view" id="view-mis-eventos" style="display:none">
-              <h2 class="view-title h4 mb-3">Mis Eventos 📅</h2>
-              <div
-                class="lista-mis-eventos d-flex flex-column gap-3"
-                id="lista-mis-eventos"
-                aria-label="Eventos a los que estoy anotado"
-              ></div>
+              <h2 class="h4 mb-3">Mis Eventos 📅</h2>
+              <div id="lista-mis-eventos" class="d-flex flex-column gap-3"></div>
             </section>
 
             <!-- CREAR EVENTO -->
             <section class="view" id="view-crear-evento" style="display:none">
-              <h2 class="view-title h4 mb-3">Crear Evento</h2>
+              <h2 class="h4 mb-3">Crear Evento</h2>
               <form id="form-crear-evento" class="crear-form">
-                <div class="field mb-3">
-                  <span class="d-block mb-1">Título del evento</span>
-                  <input
-                    type="text"
-                    id="crear-titulo"
-                    class="form-control"
-                    required
-                  />
+                <div class="mb-3">
+                  <label class="form-label">Título del evento</label>
+                  <input type="text" id="crear-titulo" class="form-control" required />
                 </div>
 
-                <div class="field-group row mb-3">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="field form-label">
-                      <span class="d-block mb-1">Fecha</span>
-                      <input
-                        type="date"
-                        id="crear-fecha"
-                        class="form-control"
-                        required
-                      />
-                    </label>
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">Fecha</label>
+                    <input type="date" id="crear-fecha" class="form-control" required />
                   </div>
                   <div class="col-md-6">
-                    <label class="field form-label">
-                      <span class="d-block mb-1">Hora</span>
-                      <input
-                        type="time"
-                        id="crear-hora"
-                        class="form-control"
-                        required
-                      />
-                    </label>
+                    <label class="form-label">Hora</label>
+                    <input type="time" id="crear-hora" class="form-control" required />
                   </div>
                 </div>
 
-                <div class="field mb-3">
-                  <span class="d-block mb-1">Ubicación</span>
-                  <input
-                    type="text"
-                    id="crear-lugar"
-                    class="form-control"
-                    placeholder="Ej: Teatro Municipal"
-                    required
-                  />
+                <div class="mb-3">
+                  <label class="form-label">Ubicación</label>
+                  <input type="text" id="crear-lugar" class="form-control" required />
                 </div>
 
-                <div class="field-group row mb-3">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="field form-label">
-                      <span class="d-block mb-1">Categoría</span>
-                      <select
-                        id="crear-categoria"
-                        class="form-select"
-                        required
-                      >
-                        <option value="musica">Música</option>
-                        <option value="arte">Arte</option>
-                        <option value="deporte">Deporte</option>
-                        <option value="teatro">Teatro</option>
-                        <option value="cine">Cine</option>
-                      </select>
-                    </label>
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">Categoría</label>
+                    <select id="crear-categoria" class="form-select" required>
+                      <option value="musica">Música</option>
+                      <option value="arte">Arte</option>
+                      <option value="deporte">Deporte</option>
+                      <option value="teatro">Teatro</option>
+                      <option value="cine">Cine</option>
+                      <option value="otros">Otros</option>
+                    </select>
                   </div>
                   <div class="col-md-6">
-                    <label class="field form-label">
-                      <span class="d-block mb-1">Modalidad</span>
-                      <select
-                        id="crear-modalidad"
-                        class="form-select"
-                        required
-                      >
-                        <option value="presencial">Presencial</option>
-                        <option value="online">Online</option>
-                      </select>
-                    </label>
+                    <label class="form-label">Modalidad</label>
+                    <select id="crear-modalidad" class="form-select" required>
+                      <option value="presencial">Presencial</option>
+                      <option value="online">Online</option>
+                    </select>
                   </div>
                 </div>
 
-                <div class="field mb-3">
-                  <span class="d-block mb-1">Descripción</span>
-                  <textarea
-                    id="crear-descripcion"
-                    class="form-control"
-                    rows="4"
-                    required
-                  ></textarea>
+                <div class="mb-3">
+                  <label class="form-label">Descripción</label>
+                  <textarea id="crear-descripcion" class="form-control" rows="4" required></textarea>
                 </div>
 
-                <p
-                  class="mensaje-error text-danger small mb-3"
-                  id="crear-error"
-                ></p>
-
-                <button class="btn btn-primary" type="submit">
-                  Guardar evento
-                </button>
+                <p id="crear-error" class="text-danger small mb-3"></p>
+                <button class="btn btn-primary" type="submit">Guardar evento</button>
               </form>
             </section>
 
-            <!-- DETALLE DE EVENTO -->
+            <!-- DETALLE -->
             <section class="view" id="view-detalle" style="display:none">
-              <button
-                class="btn btn-link text-decoration-none px-0 mb-3"
-                id="btn-volver-lista"
-              >
-                ← Volver
-              </button>
+              <button id="btn-volver-lista" class="btn btn-link px-0 mb-3">← Volver</button>
 
-              <div
-                class="detalle-hero d-flex justify-content-center align-items-center mb-3"
-              >
-                <div
-                  class="detalle-icono display-4"
-                  id="detalle-icono"
-                >
-                  🎵
+              <div class="detalle-hero d-flex justify-content-center mb-3">
+                <div id="detalle-icono" class="display-4">🎵</div>
+              </div>
+
+              <h2 id="detalle-titulo" class="h3 text-center mb-3"></h2>
+              <div id="detalle-tags" class="d-flex flex-wrap gap-2 justify-content-center mb-3"></div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <div class="card h-100"><div class="card-body">
+                    <h3 class="h6">Fecha y Hora</h3>
+                    <p id="detalle-fecha" class="mb-0"></p>
+                  </div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card h-100"><div class="card-body">
+                    <h3 class="h6">Ubicación</h3>
+                    <p id="detalle-lugar" class="mb-0"></p>
+                  </div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card h-100"><div class="card-body">
+                    <h3 class="h6">Modalidad</h3>
+                    <p id="detalle-modalidad" class="mb-0"></p>
+                  </div></div>
                 </div>
               </div>
 
-              <h2
-                id="detalle-titulo"
-                class="detalle-titulo h3 text-center mb-3"
-              >
-                Título del evento
-              </h2>
+              <h3 class="h6">Descripción</h3>
+              <p id="detalle-descripcion"></p>
 
-              <div
-                class="detalle-tags d-flex flex-wrap gap-2 justify-content-center mb-3"
-                id="detalle-tags"
-              ></div>
-
-              <div class="detalle-grid row g-3 mb-3">
-                <article class="detalle-card col-md-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="h6">Fecha y Hora</h3>
-                      <p id="detalle-fecha" class="mb-0"></p>
-                    </div>
-                  </div>
-                </article>
-                <article class="detalle-card col-md-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="h6">Ubicación</h3>
-                      <p id="detalle-lugar" class="mb-0"></p>
-                    </div>
-                  </div>
-                </article>
-                <article class="detalle-card col-md-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h3 class="h6">Modalidad</h3>
-                      <p id="detalle-modalidad" class="mb-0"></p>
-                    </div>
-                  </div>
-                </article>
+              <div class="d-flex gap-2 mb-2">
+                <button id="btn-toggle-inscripcion" class="btn btn-primary">Reservar entrada</button>
               </div>
-
-              <section class="detalle-bloque mb-3">
-                <h3 class="h6">Descripción</h3>
-                <p id="detalle-descripcion"></p>
-              </section>
-
-              <div
-                class="detalle-actions d-flex flex-wrap gap-2 mb-2"
-              >
-                <button
-                  class="btn btn-primary"
-                  id="btn-toggle-inscripcion"
-                >
-                  Reservar entrada
-                </button>
-              </div>
-
-              <p
-                class="detalle-estado text-muted small"
-                id="detalle-estado"
-              ></p>
+              <p id="detalle-estado" class="text-muted small"></p>
             </section>
           </main>
         </div>
       </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
       <!-- SCRIPTS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="scripts/script.js"></script>
-      <script src="scripts/filtros.js"></script>
-      <script src="scripts/carrusel.js"></script>
-      <script src="scripts/mis-eventos.js"></script>
-      <script src="scripts/detalle.js"></script>
-      <script src="scripts/inscripcion.js"></script>
-      <script src="scripts/crear.js"></script>
       <script src="scripts/login.js"></script>
       <script src="scripts/app.js"></script>
+      <script src="scripts/filtros.js"></script>
+      <script src="scripts/detalle.js"></script>
+      <script src="scripts/mis-eventos.js"></script>
+      <script src="scripts/inscripcion.js"></script>
+      <script src="scripts/crear.js"></script>
+
     </body>
-</html>
+  </html>

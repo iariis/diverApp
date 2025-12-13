@@ -1,31 +1,97 @@
-/* scripts/mis-eventos.js */
-/* Si ya existe la función en app.js no hace falta, pero dejamos la versión */
+function renderAccesibilidad(acc) {
+  if (!acc) return "";
+
+  let html = `<div class="mt-2 d-flex flex-wrap gap-2">`;
+
+  if (acc.rampas) {
+    html += `<span class="badge bg-light text-dark border">♿ Rampas</span>`;
+  }
+  if (acc.banios) {
+    html += `<span class="badge bg-light text-dark border">🚻 Baños accesibles</span>`;
+  }
+  if (acc.lsa) {
+    html += `<span class="badge bg-light text-dark border">🤟 LSA</span>`;
+  }
+  if (acc.braille) {
+    html += `<span class="badge bg-light text-dark border">📖 Braille</span>`;
+  }
+  if (acc.zonaTranquila) {
+    html += `<span class="badge bg-light text-dark border">🧘 Zona tranquila</span>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
 function renderMisEventos() {
   const lista = document.getElementById("lista-mis-eventos");
   if (!lista) return;
+
   lista.innerHTML = "";
 
   const mis = eventos.filter(ev => eventosInscripto.includes(ev.id));
+
   if (mis.length === 0) {
-    lista.innerHTML = "<p class='text-muted'>Todavía no te anotaste a ningún evento.</p>";
+    lista.innerHTML =
+      "<p class='text-muted p-3'>Todavía no te anotaste a ningún evento.</p>";
     return;
   }
 
   mis.forEach(ev => {
     const item = document.createElement("article");
-    item.className = "card";
+    item.className = "card mb-3";
+
     item.innerHTML = `
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <div>
-          <h3 class="h6 mb-1">${ev.titulo}</h3>
-          <p class="mb-0 text-muted small">📅 ${formatearFecha(ev.fecha)} · ${ev.hora} · 📍 ${ev.lugar}</p>
+      <div class="row g-0">
+        
+        <div class="col-md-4">
+          <img
+            src="${ev.imagen}"
+            alt="Imagen del evento ${ev.titulo}"
+            class="img-fluid h-100 rounded-start object-fit-cover"
+            style="min-height: 140px;"
+          />
         </div>
-        <div class="d-flex gap-2">
-          <button class="btn btn-outline-secondary btn-sm" data-detalle-id="${ev.id}">Ver detalle</button>
-          <button class="btn btn-outline-danger btn-sm" data-inscribir-id="${ev.id}">Cancelar</button>
+
+        <div class="col-md-8">
+          <div class="card-body d-flex justify-content-between align-items-start">
+
+            <div class="pe-3">
+              <h3 class="h6 mb-1 text-primary">${ev.titulo}</h3>
+
+              <p class="mb-1 text-muted small">
+                📅 ${formatearFecha(ev.fecha)} · ${ev.hora} · 📍 ${ev.lugar}
+              </p>
+
+              <p class="card-text small text-muted mb-1">
+                ${ev.descripcion.substring(0, 120)}...
+              </p>
+
+              ${renderAccesibilidad(ev.accesibilidad)}
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                data-detalle-id="${ev.id}"
+              >
+                Ver detalle
+              </button>
+
+              <button
+                class="btn btn-outline-danger btn-sm"
+                data-inscribir-id="${ev.id}"
+              >
+                Cancelar
+              </button>
+            </div>
+
+          </div>
         </div>
+
       </div>
     `;
+
     lista.appendChild(item);
   });
 }

@@ -1,4 +1,6 @@
-/*ESTILOS GENERALES */
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
 
 :root {
   --color-bg: #f5f5f7;
@@ -20,9 +22,12 @@ body {
     sans-serif;
   background-color: var(--color-bg);
   margin: 0;
+  overflow-x: hidden; /* evita descentrados fantasmas */
 }
 
-/*LOGIN */
+/* =========================
+   LOGIN
+   ========================= */
 
 .login-wrapper {
   background: radial-gradient(circle at top left, #dbeafe, #f5f5f7 40%, #e5e7eb);
@@ -55,19 +60,25 @@ body {
   min-height: 1.2rem;
 }
 
-/* LAYOUT APP */
+/* =========================
+   LAYOUT APP
+   ========================= */
 
 .app-layout {
   display: flex;
+  min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* =========================
+   SIDEBAR
+   ========================= */
 
 .sidebar {
   width: 260px;
   min-height: 100vh;
   background: var(--color-sidebar);
   color: #e5e7eb;
+  flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -99,7 +110,9 @@ body {
   text-align: center;
 }
 
-.sidebar-nav .nav-item.active {
+.sidebar-nav .nav-item.active,
+.sidebar-nav .nav-item.active:hover,
+.sidebar-nav .nav-item.active:focus {
   background: #e5e7eb;
   color: #111827;
 }
@@ -112,7 +125,20 @@ body {
   font-size: 0.7rem;
 }
 
-/* TOPBAR */
+/* =========================
+   MAIN / CONTENIDO
+   ========================= */
+
+.main-area {
+  flex: 1;
+  min-width: 0; /* CLAVE para que no se descentre */
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   TOPBAR
+   ========================= */
 
 .topbar {
   background: #ffffff;
@@ -130,7 +156,9 @@ body {
   font-size: 0.75rem;
 }
 
-/* VISTAS GENERALES */
+/* =========================
+   VISTAS GENERALES
+   ========================= */
 
 .views {
   background: #f9fafb;
@@ -144,7 +172,9 @@ body {
   font-size: 0.9rem;
 }
 
-/* INICIO*/
+/* =========================
+   INICIO
+   ========================= */
 
 #lista-inicio .card {
   border-radius: var(--radius-lg);
@@ -157,7 +187,6 @@ body {
   transition: all 0.15s ease-out;
 }
 
-
 .explorar-filtros .input-group-text {
   border-radius: 999px 0 0 999px;
 }
@@ -166,22 +195,20 @@ body {
   border-radius: 0 999px 999px 0;
 }
 
-.chip-group {
-}
-
 .chip {
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   padding-inline: 0.9rem;
 }
 
-/* cuando está activa la categoría */
 .chip.active,
 .chip.btn-primary {
   color: #ffffff;
 }
 
-/* GRID DE EVENTOS */
+/* =========================
+   GRID DE EVENTOS
+   ========================= */
 
 .grid-eventos .card {
   border-radius: var(--radius-lg);
@@ -199,14 +226,18 @@ body {
   font-weight: 600;
 }
 
-/* MIS EVENTOS */
+/* =========================
+   MIS EVENTOS
+   ========================= */
 
 .lista-mis-eventos .card {
   border-radius: var(--radius-lg);
   border: 1px solid #e5e7eb;
 }
 
-/*  DETALLE DE EVENTO */
+/* =========================
+   DETALLE DE EVENTO
+   ========================= */
 
 .detalle-hero {
   background: linear-gradient(135deg, #dbeafe, #fef3c7);
@@ -217,7 +248,7 @@ body {
 .detalle-icono {
   width: 56px;
   height: 56px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -249,9 +280,22 @@ body {
   font-size: 0.8rem;
 }
 
+/* =========================
+   IMÁGENES
+   ========================= */
+
+.card-img-top {
+  height: 160px;
+  object-fit: cover;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 768px) {
   .sidebar {
-    display: none; 
+    display: none;
   }
 
   .app-layout {
@@ -262,61 +306,35 @@ body {
     width: 100% !important;
   }
 }
-
 /* =========================
-   Ajustes necesarios para layout + carrusel
+   EVENTBRITE TOPBAR
    ========================= */
 
-/* Sidebar fija y espacio para el main (evita que el contenido quede debajo) */
-.sidebar {
-  position: fixed;
-  left: 0;
+.eventbrite-topbar {
+  position: sticky;
   top: 0;
-  z-index: 1020; /* por encima del contenido, debajo del topbar si se necesitara */
+  z-index: 100;
+  background: #ffffff;
 }
 
-/* Dejar espacio al main para que no quede debajo de la sidebar */
-.main-area {
-  margin-left: 260px; /* mismo ancho que .sidebar */
-  min-height: 100vh;
+.eventbrite-topbar input {
+  max-width: 220px;
+  font-size: 0.9rem;
+}
+.app-layout {
+  flex-direction: column;
+}
+.eventbrite-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* En pantallas pequeñas (mobile) la sidebar aparece como bloque normal y el main pierde margen */
-@media (max-width: 900px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-  }
-  .main-area {
-    margin-left: 0;
-  }
+.eventbrite-topbar nav button {
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* Carrusel horizontal (scroller dentro de #lista-inicio) */
-#lista-inicio > div {
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-
-/* Estética de la scrollbar (solo WebKit) */
-#lista-inicio > div::-webkit-scrollbar {
-  height: 8px;
-}
-#lista-inicio > div::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
-  border-radius: 4px;
-}
-
-/* Pequeña mejora visual en imágenes de tarjetas para mantener altura uniforme */
-.card-img-top {
-  object-fit: cover;
-  height: 160px;
-}
-
-/* Aumentar contraste de botones activos en sidebar (si Bootstrap los pisa) */
-.sidebar-nav .nav-item.active,
-.sidebar-nav .nav-item.active:focus,
-.sidebar-nav .nav-item.active:hover {
-  background: #e5e7eb;
-  color: #111827;
+.eventbrite-topbar nav button:hover {
+  text-decoration: underline;
 }

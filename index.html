@@ -47,59 +47,102 @@
 
       <!-- ====== APP ====== -->
       <div id="app-view" class="app-layout d-none min-vh-100">
-        <!-- SIDEBAR -->
-        <aside class="sidebar bg-dark text-light d-flex flex-column p-3">
-          <div class="sidebar-header d-flex align-items-center mb-4">
-            <div class="sidebar-logo bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width:40px;height:40px">🌈</div>
-            <div>
-              <div class="fw-semibold">DiverApp</div>
-              <p class="small text-muted mb-0">Eventos inclusivos para todos</p>
-            </div>
-          </div>
-
-          <nav class="nav nav-pills flex-column mb-auto">
-            <button class="nav-item btn btn-outline-light text-start mb-2 active" data-view="inicio">🏠 Inicio</button>
-            <button class="nav-item btn btn-outline-light text-start mb-2" data-view="mis-eventos">📅 Mis Eventos</button>
-            <button class="nav-item btn btn-outline-light text-start" data-view="crear-evento">➕ Crear Evento</button>
-          </nav>
-
-          <footer class="mt-4">
-            <small class="text-muted">© 2024 DiverApp · Inclusión para todos</small>
-          </footer>
-        </aside>
-
         <!-- MAIN AREA -->
         <div class="main-area flex-grow-1 d-flex flex-column bg-white">
           <!-- TOPBAR -->
-          <header class="topbar d-flex justify-content-between align-items-center border-bottom px-3 px-md-4 py-2">
-            <div class="input-group w-50">
-              <span class="input-group-text bg-white border-end-0">🔍</span>
-              <input id="buscar-global" type="text" class="form-control border-start-0" placeholder="Buscar eventos, ubicaciones..." />
-            </div>
+          <header class="eventbrite-topbar border-bottom bg-white px-4 py-3">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
 
-            <div class="d-flex align-items-center gap-3">
-              <div class="text-end">
-                <span id="nav-user" class="fw-semibold d-block">Usuario</span>
-                <span id="nav-user-email" class="text-muted small">usuario@email.com</span>
-              </div>
-              <div id="topbar-avatar" class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:36px;height:36px">U</div>
-              <button id="btn-logout" class="btn btn-outline-secondary btn-sm">Salir</button>
-            </div>
-          </header>
+    <!-- LOGO -->
+    <div class="fw-bold fs-5 text-primary">
+      DiverApp
+    </div>
+
+    <!-- NAV -->
+    <nav class="d-flex gap-4">
+      <button class="btn btn-link text-dark p-0" data-view="inicio">Inicio</button>
+      <button class="btn btn-link text-dark p-0" data-view="mis-eventos">Mis eventos</button>
+      <button class="btn btn-link text-dark p-0" data-view="crear-evento">Crear evento</button>
+      <button class="btn btn-link text-dark p-0">Quiénes somos</button>
+    </nav>
+
+    <!-- BUSCADOR -->
+    <div class="d-flex gap-2">
+      <input type="text" class="form-control" placeholder="Buscar eventos" />
+      <button class="btn btn-primary">🔍</button>
+    </div>
+
+  </div>
+</header>
+
+
 
           <!-- VIEWS -->
           <main class="views flex-grow-1 overflow-auto p-3 p-md-4">
-            <!-- INICIO (carrusel + grilla) -->
             <section class="view" id="view-inicio">
-              <h2 class="h4 mb-3">Inicio</h2>
-              <p class="text-muted mb-3">Bienvenido. Descubrí y anotate en eventos inclusivos.</p>
+          <section class="hero-eventbrite container-fluid py-5">
+        <div class="container">
+      <div class="row align-items-center">
 
-              <!-- CARRUSEL HORIZONTAL -->
-              <section id="lista-inicio" class="mb-4"></section>
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <h1 class="fw-bold display-5">
+          <span class="text-primary">Hacé lo que</span><br />
+          te apasiona
+        </h1>
 
-              <!-- GRILLA PRINCIPAL -->
-              <section id="lista-eventos" class="row g-3" aria-label="Listado de eventos"></section>
-            </section>
+        <p class="lead text-muted mt-3">
+          Descubrí eventos inclusivos, culturales y sociales pensados
+          para todas las personas 🌈
+        </p>
+
+        <div class="input-group mt-4">
+          <span class="input-group-text">🔍</span>
+          <input type="text" class="form-control" placeholder="Buscar eventos..." />
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <img
+          src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229"
+          alt="Evento en vivo"
+          class="img-fluid rounded-4 shadow"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- CARRUSEL HORIZONTAL -->
+   <!-- CARRUSEL HORIZONTAL -->
+<div id="eventosCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+  <div class="carousel-inner" id="listaInicio"></div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#eventosCarousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#eventosCarousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+  <!-- GRILLA PRINCIPAL -->
+  <section id="lista-eventos" class="row g-3" aria-label="Listado de eventos"></section>
+
+</section>
+
 
             <!-- MIS EVENTOS -->
             <section class="view" id="view-mis-eventos" style="display:none">
@@ -212,6 +255,8 @@
       <script src="scripts/script.js"></script>
       <script src="scripts/login.js"></script>
       <script src="scripts/app.js"></script>
+      
+      <script src="scripts/carrusel.js"></script>
       <script src="scripts/filtros.js"></script>
       <script src="scripts/detalle.js"></script>
       <script src="scripts/mis-eventos.js"></script>

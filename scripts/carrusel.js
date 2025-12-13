@@ -1,33 +1,46 @@
+// ===== CARRUSEL INICIO =====
+
+// contenedor del carrusel
+const listaInicio = document.getElementById("listaInicio");
+
+// datos de ejemplo (podés reemplazarlos por los reales)
+const eventosInicio = [
+  {
+    titulo: "Festival Inclusivo",
+    descripcion: "Un espacio para compartir sin barreras",
+    imagen: "https://picsum.photos/800/400?random=1"
+  },
+  {
+    titulo: "Charla de Accesibilidad",
+    descripcion: "Tecnología para todas las personas",
+    imagen: "https://picsum.photos/800/400?random=2"
+  },
+  {
+    titulo: "Encuentro Cultural",
+    descripcion: "Arte, música y diversidad",
+    imagen: "https://picsum.photos/800/400?random=3"
+  }
+];
+
+// render del carrusel
 function renderInicio() {
-  if (!listaInicio) return;
   listaInicio.innerHTML = "";
 
-  // Tomamos los 3 primeros eventos como ejemplo
-  const proximos = eventos.slice(0, 3);
+  eventosInicio.forEach((evento, index) => {
+    const item = document.createElement("div");
+    item.className = `carousel-item ${index === 0 ? "active" : ""}`;
 
-  proximos.forEach((ev) => {
-    const card = document.createElement("article");
-    card.className = "col-md-4";
-
-    card.innerHTML = `
-      <div class="card h-100">
-        <div class="card-body d-flex flex-column">
-          <h3 class="h6 mb-2">${ev.titulo}</h3>
-          <p class="mb-1 text-muted">
-            📅 ${formatearFecha(ev.fecha)} · ${ev.hora}
-          </p>
-          <p class="mb-1 text-muted">📍 ${ev.lugar}</p>
-          <p class="small flex-grow-1">${ev.descripcion.substring(0, 80)}...</p>
-          <button
-            class="btn btn-outline-primary btn-sm mt-2"
-            data-detalle-id="${ev.id}"
-          >
-            Ver detalle
-          </button>
-        </div>
+    item.innerHTML = `
+      <img src="${evento.imagen}" class="d-block w-100" alt="${evento.titulo}">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h5>${evento.titulo}</h5>
+        <p>${evento.descripcion}</p>
       </div>
     `;
 
-    listaInicio.appendChild(card);
+    listaInicio.appendChild(item);
   });
 }
+
+// ejecutar al cargar
+renderInicio();

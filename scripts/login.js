@@ -57,6 +57,7 @@
 
     cerrarSesion() {
       localStorage.removeItem("usuarioDiverApp");
+      // Ya no borramos las inscripciones para que persistan por usuario
       window.usuarioActual = null;
       this.safeCall("mostrarLogin");
     }
@@ -70,7 +71,12 @@
 
     guardarSesion(email) {
       localStorage.setItem("usuarioDiverApp", email);
-      window.usuarioActual = email; // Mantenemos la variable global por compatibilidad
+      window.usuarioActual = email;
+
+      // Cargar las inscripciones específicas de este usuario desde localStorage
+      const inscripcionesKey = `diverAppInscripciones_${email}`;
+      const inscripcionesGuardadas = localStorage.getItem(inscripcionesKey);
+      window.eventosInscripto = inscripcionesGuardadas ? JSON.parse(inscripcionesGuardadas) : [];
     }
 
     mostrarMensaje(texto, tipo) {

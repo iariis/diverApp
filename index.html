@@ -1,225 +1,300 @@
 <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <title>DiverApp - Eventos inclusivos</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-      <!-- Tu CSS -->
-      <link rel="stylesheet" href="style.css" />
-    </head>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DiverApp - Eventos inclusivos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <body class="bg-light">
-      <!-- ====== LOGIN ====== -->
-      <main id="login-view" class="login-wrapper d-flex align-items-center justify-content-center min-vh-100">
-        <section class="login-card card shadow p-4 p-md-5 text-center">
-          <div class="login-logo display-6 mb-2">🌈</div>
-          <h1 class="login-title h3 mb-1">DiverApp</h1>
-          <p class="login-subtitle text-muted mb-4">Eventos inclusivos para todos</p>
+  <body class="bg-light">
+    <!-- ====== LOGIN ====== -->
+   <main id="login-view" class="login-wrapper d-none align-items-center justify-content-center min-vh-100">
 
-          <form class="login-form" onsubmit="return false;">
-            <div class="mb-3 text-start">
-              <label class="form-label">
-                <span class="d-block mb-1">Email</span>
-                <input type="email" id="email-login" class="form-control" placeholder="tu@email.com" />
-              </label>
-            </div>
-
-            <div class="mb-3 text-start">
-              <label class="form-label">
-                <span class="d-block mb-1">Contraseña</span>
-                <input type="password" id="password-login" class="form-control" placeholder="••••••••" />
-              </label>
-            </div>
-
-            <p id="login-error" class="text-danger small mb-3"></p>
-
-            <button type="button" class="btn btn-primary w-100 mb-3" id="btn-login">Iniciar sesión</button>
-
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
-              <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
-              <a href="#" class="text-decoration-none">¿No tienes cuenta? Crear cuenta</a>
-            </div>
-          </form>
-        </section>
-      </main>
-
-      <!-- ====== APP ====== -->
-      <div id="app-view" class="app-layout d-none min-vh-100">
-        <!-- MAIN AREA -->
-        <div class="main-area flex-grow-1 d-flex flex-column bg-white">
-          <!-- TOPBAR -->
-          <header class="eventbrite-topbar border-bottom bg-white px-4 py-3">
-  <div class="container-fluid d-flex align-items-center justify-content-between">
-
-    <!-- LOGO -->
-    <div class="fw-bold fs-5 text-primary">
-      DiverApp
-    </div>
-
-    <!-- NAV -->
-    <nav class="d-flex gap-4">
-      <button class="btn btn-link text-dark p-0" data-view="inicio">Inicio</button>
-      <button class="btn btn-link text-dark p-0" data-view="mis-eventos">Mis eventos</button>
-      <button class="btn btn-link text-dark p-0" data-view="crear-evento">Crear evento</button>
-      <button class="btn btn-link text-dark p-0" data-view="quienes-somos">Quiénes somos</button>
-    </nav>
-
-    <!-- USER / LOGOUT -->
-    <div>
-      <span id="nav-user" class="me-2 small"></span>
-      <button id="btn-logout" class="btn btn-outline-danger btn-sm">Cerrar sesión</button>
-    </div>
-  </div>
-</header>
-
-
-
-          <!-- VIEWS -->
-          <main class="views flex-grow-1 overflow-auto p-3 p-md-4">
-            <section class="view" id="view-inicio">
-          <section class="hero-eventbrite container-fluid py-5">
-        <div class="container">
-      <div class="row align-items-center">
-
-      <div class="col-lg-5 mb-4 mb-lg-0">
-        <h1 class="fw-bold display-5">
-          <span class="text-primary">Hacé lo que</span><br />
-          te apasiona
-        </h1>
-
-        <p class="lead text-muted mt-3">
-          Descubrí eventos inclusivos, culturales y sociales pensados
-          para todas las personas 🌈
+      <section class="login-card card shadow p-4 p-md-5 text-center">
+        <div class="login-logo display-6 mb-2">🌈</div>
+        <h1 class="login-title h3 mb-1">DiverApp</h1>
+        <p class="login-subtitle text-muted mb-4">
+          Eventos inclusivos para todos
         </p>
 
-        <div class="input-group mt-4">
-          <span class="input-group-text">🔍</span>
-          <input type="text" id="buscar-global" class="form-control" placeholder="Buscar eventos..." />
-        </div>
-      </div>
+        <form class="login-form" onsubmit="return false;">
+          <div class="mb-3 text-start">
+            <label class="form-label">
+              <span class="d-block mb-1">Email</span>
+              <input
+                type="email"
+                id="email-login"
+                class="form-control"
+                placeholder="tu@email.com"
+              />
+            </label>
+          </div>
 
-      <div class="col-lg-7">
-        <img
-          src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229"
-          alt="Evento en vivo"
-          class="img-fluid rounded-4 shadow"
-        />
-      </div>
+          <div class="mb-3 text-start">
+            <label class="form-label">
+              <span class="d-block mb-1">Contraseña</span>
+              <input
+                type="password"
+                id="password-login"
+                class="form-control"
+                placeholder="••••••••"
+              />
+            </label>
+          </div>
 
-    </div>
-  </div>
-</section>
+          <p id="login-error" class="text-danger small mb-3"></p>
 
+          <button
+            type="button"
+            class="btn btn-primary w-100 mb-3"
+            id="btn-login"
+          >
+            Iniciar sesión
+          </button>
 
-  <!-- CARRUSEL HORIZONTAL -->
-   <!-- CARRUSEL HORIZONTAL -->
-<div id="eventosCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-  <div class="carousel-inner" id="listaInicio"></div>
+        </form>
+      </section>
+    </main>
 
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#eventosCarousel"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon"></span>
-  </button>
+    <!-- ====== APP ====== -->
+    <div id="app-view" class="app-layout d-none min-vh-100">
+      <!-- MAIN AREA -->
+      <div class="main-area flex-grow-1 d-flex flex-column bg-white">
+        <!-- TOPBAR -->
+        <header class="eventbrite-topbar border-bottom bg-white px-4 py-3">
+          <div
+            class="container-fluid d-flex align-items-center justify-content-between"
+          >
+            <!-- LOGO -->
+            <div class="fw-bold fs-5 text-primary">DiverApp</div>
 
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#eventosCarousel"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
+            <!-- NAV -->
+            <nav class="d-flex gap-4">
+              <button class="btn btn-link text-dark p-0" data-view="inicio">
+                Inicio
+              </button>
+              <button
+                class="btn btn-link text-dark p-0"
+                data-view="mis-eventos"
+              >
+                Mis eventos
+              </button>
+              <button
+                class="btn btn-link text-dark p-0"
+                data-view="crear-evento"
+              >
+                Crear evento
+              </button>
+              <button
+                class="btn btn-link text-dark p-0"
+                data-view="quienes-somos"
+              >
+                Quiénes somos
+              </button>
+            </nav>
 
-  <!-- GRILLA PRINCIPAL -->
-  <section id="lista-eventos" class="row g-3" aria-label="Listado de eventos"></section>
+            <!-- USER / LOGOUT -->
+            <div>
+              <span id="nav-user" class="me-2 small"></span>
+              <button id="btn-logout" class="btn btn-outline-danger btn-sm">
+                Cerrar sesión
+              </button>
+            </div>
+          </div>
+        </header>
 
-</section>
-
-
-            <!-- MIS EVENTOS -->
-            <section class="view" id="view-mis-eventos" style="display:none">
-              <h2 class="h4 mb-3">Mis Eventos 📅</h2>
-              <div id="lista-mis-eventos" class="d-flex flex-column gap-3"></div>
-            </section>
-
-            <!-- CREAR EVENTO -->
-            <section class="view" id="view-crear-evento" style="display:none">
-              <h2 class="h4 mb-3">Crear Evento</h2>
-              <form id="form-crear-evento" class="crear-form">
-                <div class="mb-3">
-                  <label class="form-label">Título del evento</label>
-                  <input type="text" id="crear-titulo" class="form-control" required />
-                </div>
-
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label class="form-label">Fecha</label>
-                    <input type="date" id="crear-fecha" class="form-control" required />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Hora</label>
-                    <input type="time" id="crear-hora" class="form-control" required />
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Ubicación</label>
-                  <input type="text" id="crear-lugar" class="form-control" required />
-                </div>
-
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label class="form-label">Categoría</label>
-                    <select id="crear-categoria" class="form-select" required>
-                      <option value="musica">Música</option>
-                      <option value="arte">Arte</option>
-                      <option value="deporte">Deporte</option>
-                      <option value="teatro">Teatro</option>
-                      <option value="cine">Cine</option>
-                      <option value="otros">Otros</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Modalidad</label>
-                    <select id="crear-modalidad" class="form-select" required>
-                      <option value="presencial">Presencial</option>
-                      <option value="online">Online</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Descripción</label>
-                  <textarea id="crear-descripcion" class="form-control" rows="4" required></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="crear-imagen" class="form-label">Imagen del evento (opcional)</label>
-                  <input class="form-control" type="file" id="crear-imagen" accept="image/*">
-                </div>
-
-                <p id="crear-error" class="text-danger small mb-3"></p>
-                <button class="btn btn-primary" type="submit">Guardar evento</button>
-              </form>
-            </section>
-
-            <!-- QUIÉNES SOMOS -->
-            <section class="view" id="view-quienes-somos" style="display:none">
+        <!-- VIEWS -->
+        <main class="views flex-grow-1 overflow-auto p-3 p-md-4">
+          <section class="view" id="view-inicio">
+            <section class="hero-eventbrite container-fluid py-5">
               <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h1 class="fw-bold display-5">
+                      <span class="text-primary">Hacé lo que</span><br />
+                      te apasiona
+                    </h1>
+
+                    <p class="lead text-muted mt-3">
+                      Descubrí eventos inclusivos, culturales y sociales
+                      pensados para todas las personas 🌈
+                    </p>
+
+                    <div class="input-group mt-4">
+                      <span class="input-group-text">🔍</span>
+                      <input
+                        type="text"
+                        id="buscar-global"
+                        class="form-control"
+                        placeholder="Buscar eventos..."
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-7">
+                    <img
+                      src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229"
+                      alt="Evento en vivo"
+                      class="img-fluid rounded-4 shadow"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CARRUSEL HORIZONTAL -->
+            <div
+              id="eventosCarousel"
+              class="carousel slide mb-4"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner" id="listaInicio"></div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#eventosCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#eventosCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+
+            <!-- GRILLA PRINCIPAL -->
+            <section
+              id="lista-eventos"
+              class="row g-3"
+              aria-label="Listado de eventos"
+            ></section>
+          </section>
+
+          <!-- MIS EVENTOS -->
+          <section class="view" id="view-mis-eventos" style="display: none">
+            <h2 class="h4 mb-3">Mis Eventos 📅</h2>
+            <div id="lista-mis-eventos" class="d-flex flex-column gap-3"></div>
+          </section>
+
+          <!-- CREAR EVENTO -->
+          <section class="view" id="view-crear-evento" style="display: none">
+            <h2 class="h4 mb-3">Crear Evento</h2>
+            <form id="form-crear-evento" class="crear-form">
+              <div class="mb-3">
+                <label class="form-label">Título del evento</label>
+                <input
+                  type="text"
+                  id="crear-titulo"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Fecha</label>
+                  <input
+                    type="date"
+                    id="crear-fecha"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Hora</label>
+                  <input
+                    type="time"
+                    id="crear-hora"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Ubicación</label>
+                <input
+                  type="text"
+                  id="crear-lugar"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Categoría</label>
+                  <select id="crear-categoria" class="form-select" required>
+                    <option value="musica">Música</option>
+                    <option value="arte">Arte</option>
+                    <option value="deporte">Deporte</option>
+                    <option value="teatro">Teatro</option>
+                    <option value="cine">Cine</option>
+                    <option value="otros">Otros</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Modalidad</label>
+                  <select id="crear-modalidad" class="form-select" required>
+                    <option value="presencial">Presencial</option>
+                    <option value="online">Online</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea
+                  id="crear-descripcion"
+                  class="form-control"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="crear-imagen" class="form-label"
+                  >Imagen del evento (opcional)</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="crear-imagen"
+                  accept="image/*"
+                />
+              </div>
+
+              <p id="crear-error" class="text-danger small mb-3"></p>
+              <button class="btn btn-primary" type="submit">
+                Guardar evento
+              </button>
+            </form>
+          </section>
+
+          <!-- QUIÉNES SOMOS -->
+          <section class="view" id="view-quienes-somos" style="display: none">
+            <div class="container">
               <!-- INTRO -->
               <div class="text-center mb-5">
                 <h2 class="fw-bold display-6">Quiénes somos 🌈</h2>
                 <p class="lead text-muted">
                   En DiverApp creemos que la cultura, el entretenimiento y la
-                  participación social deben ser accesibles, diversos e inclusivos
-                  para todas las personas.
+                  participación social deben ser accesibles, diversos e
+                  inclusivos para todas las personas.
                 </p>
               </div>
 
@@ -231,9 +306,9 @@
                       <div class="fs-1 mb-2">💡</div>
                       <h3 class="h5">Nuestra misión</h3>
                       <p class="text-muted small">
-                        Conectar personas con experiencias culturales y sociales,
-                        eliminando barreras y promoviendo espacios seguros,
-                        accesibles y respetuosos.
+                        Conectar personas con experiencias culturales y
+                        sociales, eliminando barreras y promoviendo espacios
+                        seguros, accesibles y respetuosos.
                       </p>
                     </div>
                   </div>
@@ -245,8 +320,8 @@
                       <div class="fs-1 mb-2">🤝</div>
                       <h3 class="h5">Nuestros valores</h3>
                       <p class="text-muted small">
-                        Inclusión, diversidad, accesibilidad, empatía y compromiso
-                        con las distintas realidades sociales.
+                        Inclusión, diversidad, accesibilidad, empatía y
+                        compromiso con las distintas realidades sociales.
                       </p>
                     </div>
                   </div>
@@ -259,7 +334,8 @@
                       <h3 class="h5">Qué hacemos</h3>
                       <p class="text-muted small">
                         Facilitamos la creación, difusión y reserva de eventos
-                        culturales, educativos y recreativos para toda la comunidad.
+                        culturales, educativos y recreativos para toda la
+                        comunidad.
                       </p>
                     </div>
                   </div>
@@ -274,14 +350,16 @@
                   </h3>
                   <p class="text-muted">
                     Para nosotros, la accesibilidad no se limita únicamente a la
-                    eliminación de barreras físicas. Implica pensar los eventos y
-                    espacios desde una perspectiva amplia, contemplando las
-                    distintas capacidades, necesidades y contextos de las personas.
+                    eliminación de barreras físicas. Implica pensar los eventos
+                    y espacios desde una perspectiva amplia, contemplando las
+                    distintas capacidades, necesidades y contextos de las
+                    personas.
                   </p>
                   <p class="text-muted">
                     Esto incluye accesibilidad física, comunicacional, digital y
-                    social, garantizando que todas las personas puedan informarse,
-                    participar y disfrutar de los eventos de manera equitativa.
+                    social, garantizando que todas las personas puedan
+                    informarse, participar y disfrutar de los eventos de manera
+                    equitativa.
                   </p>
                 </div>
               </div>
@@ -290,71 +368,94 @@
               <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
                   <p class="text-muted">
-                    DiverApp nace como una herramienta digital comprometida con la
-                    construcción de una sociedad más justa, participativa e
+                    DiverApp nace como una herramienta digital comprometida con
+                    la construcción de una sociedad más justa, participativa e
                     inclusiva, donde todas las personas tengan la oportunidad de
                     vivir experiencias culturales significativas.
                   </p>
                 </div>
               </div>
             </div>
-            </section>
+          </section>
 
-            <!-- DETALLE -->
-            <section class="view" id="view-detalle" style="display:none">
-              <button id="btn-volver-lista" class="btn btn-link px-0 mb-3">← Volver</button>
+          <!-- DETALLE -->
+          <section class="view" id="view-detalle" style="display: none">
+            <button id="btn-volver-lista" class="btn btn-link px-0 mb-3">
+              ← Volver
+            </button>
 
-              <!-- IMAGEN DEL EVENTO -->
-              <img id="detalle-imagen" src="" alt="" class="img-fluid rounded-3 mb-4" style="width: 100%; height: 300px; object-fit: cover; display: none;">
+            <!-- IMAGEN DEL EVENTO -->
+            <img
+              id="detalle-imagen"
+              src=""
+              alt=""
+              class="img-fluid rounded-3 mb-4"
+              style="
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                display: none;
+              "
+            />
 
-              <h2 id="detalle-titulo" class="h3 text-center mb-1"></h2>
-              <div id="detalle-tags" class="d-flex flex-wrap gap-2 justify-content-center mb-4"></div>
+            <h2 id="detalle-titulo" class="h3 text-center mb-1"></h2>
+            <div
+              id="detalle-tags"
+              class="d-flex flex-wrap gap-2 justify-content-center mb-4"
+            ></div>
 
-              <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                  <div class="card h-100"><div class="card-body">
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <div class="card-body">
                     <h3 class="h6">Fecha y Hora</h3>
                     <p id="detalle-fecha" class="mb-0"></p>
-                  </div></div>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="card h-100"><div class="card-body">
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <div class="card-body">
                     <h3 class="h6">Ubicación</h3>
                     <p id="detalle-lugar" class="mb-0"></p>
-                  </div></div>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="card h-100"><div class="card-body">
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <div class="card-body">
                     <h3 class="h6">Modalidad</h3>
                     <p id="detalle-modalidad" class="mb-0"></p>
-                  </div></div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <h3 class="h6">Descripción</h3>
-              <p id="detalle-descripcion"></p>
+            <h3 class="h6">Descripción</h3>
+            <p id="detalle-descripcion"></p>
 
-              <div class="d-flex gap-2 mb-2">
-                <button id="btn-toggle-inscripcion" class="btn btn-primary">Reservar entrada</button>
-              </div>
-              <p id="detalle-estado" class="text-muted small"></p>
-            </section>
-          </main>
-        </div>
+            <div class="d-flex gap-2 mb-2">
+              <button id="btn-toggle-inscripcion" class="btn btn-primary">
+                Reservar entrada
+              </button>
+            </div>
+            <p id="detalle-estado" class="text-muted small"></p>
+          </section>
+        </main>
       </div>
+    </div>
 
-      <!-- SCRIPTS -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="scripts/script.js"></script>
-      <script src="scripts/login.js"></script>
-      <script src="scripts/app.js"></script>
-      
-      <script src="scripts/carrusel.js"></script>
-      <script src="scripts/filtros.js"></script>
-      <script src="scripts/detalle.js"></script>
-      <script src="scripts/mis-eventos.js"></script>
-      <script src="scripts/inscripcion.js"></script>
-      <script src="scripts/crear.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/app.js"></script>
 
-    </body>
-  </html>
+    <script src="scripts/carrusel.js"></script>
+    <script src="scripts/filtros.js"></script>
+    <script src="scripts/detalle.js"></script>
+    <script src="scripts/mis-eventos.js"></script>
+    <script src="scripts/inscripcion.js"></script>
+    <script src="scripts/crear.js"></script>
+  </body>
+</html>

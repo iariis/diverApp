@@ -7,6 +7,12 @@ function toggleInscripcion(id) {
     eventosInscripto.splice(idx, 1);
   }
 
+  // Guardar el estado de las inscripciones en localStorage para el usuario actual
+  if (window.usuarioActual) {
+    const inscripcionesKey = `diverAppInscripciones_${window.usuarioActual}`;
+    localStorage.setItem(inscripcionesKey, JSON.stringify(eventosInscripto));
+  }
+
   // refrescar UI
   if (typeof renderCarruselInicio === "function") renderCarruselInicio();
   if (typeof renderEventos === "function") renderEventos();

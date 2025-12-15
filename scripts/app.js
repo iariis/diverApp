@@ -210,5 +210,20 @@ if (btnVolverLista) {
   });
 }
 
-// Estado inicial: mostrar login (script.js provee mostrarLogin)
-if (typeof mostrarLogin === "function") mostrarLogin();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuarioGuardado = localStorage.getItem("usuarioDiverApp");
+
+  if (usuarioGuardado) {
+    window.usuarioActual = usuarioGuardado;
+
+    // Cargar las inscripciones del usuario que ya tiene sesión
+    const inscripcionesKey = `diverAppInscripciones_${usuarioGuardado}`;
+    const inscripcionesGuardadas = localStorage.getItem(inscripcionesKey);
+    window.eventosInscripto = inscripcionesGuardadas ? JSON.parse(inscripcionesGuardadas) : [];
+
+    mostrarApp();
+  } else {
+    mostrarLogin();
+  }
+});

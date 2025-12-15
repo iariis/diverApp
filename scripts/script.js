@@ -1,4 +1,4 @@
-const eventos = [
+const eventosHardcodeados = [
   {
     id: 1,
     titulo: "Caminata Inclusiva al Río",
@@ -336,10 +336,15 @@ const eventos = [
   },
 ];
 
+// Cargar eventos desde localStorage o usar los hardcodeados como fallback
+const eventosGuardados = localStorage.getItem("diverAppEventos");
+var eventos = eventosGuardados
+  ? JSON.parse(eventosGuardados)
+  : eventosHardcodeados;
 
 // ---------- Estado global compartido ----------
 var usuarioActual = null;
-var eventosInscripto = []; // array de IDs
+var eventosInscripto = []; // Se carga al hacer login
 var eventoSeleccionado = null;
 var categoriaSeleccionada = ""; // filtro actual
 

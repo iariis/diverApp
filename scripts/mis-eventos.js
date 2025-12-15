@@ -34,12 +34,12 @@ function renderMisEventos() {
     item.innerHTML = `
       <div class="row g-0">
         
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex align-items-center">
           <img
             src="${ev.imagen}"
             alt="Imagen del evento ${ev.titulo}"
-            class="img-fluid h-100 rounded-start object-fit-cover"
-            style="min-height: 140px;"
+            class="img-fluid rounded-start"
+            style="max-height: 180px; width: 100%; object-fit: cover;"
           />
         </div>
 

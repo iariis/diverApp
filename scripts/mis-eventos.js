@@ -1,26 +1,16 @@
 function renderAccesibilidad(acc) {
   if (!acc) return "";
 
-  let html = `<div class="mt-2 d-flex flex-wrap gap-2">`;
+  const badges = [];
+  if (acc.rampas) badges.push(`<span class="badge bg-light text-dark border">♿ Rampas</span>`);
+  if (acc.banios) badges.push(`<span class="badge bg-light text-dark border">🚻 Baños accesibles</span>`);
+  if (acc.lsa) badges.push(`<span class="badge bg-light text-dark border">🤟 LSA</span>`);
+  if (acc.braille) badges.push(`<span class="badge bg-light text-dark border">📖 Braille</span>`);
+  if (acc.zonaTranquila) badges.push(`<span class="badge bg-light text-dark border">🧘 Zona tranquila</span>`);
 
-  if (acc.rampas) {
-    html += `<span class="badge bg-light text-dark border">♿ Rampas</span>`;
-  }
-  if (acc.banios) {
-    html += `<span class="badge bg-light text-dark border">🚻 Baños accesibles</span>`;
-  }
-  if (acc.lsa) {
-    html += `<span class="badge bg-light text-dark border">🤟 LSA</span>`;
-  }
-  if (acc.braille) {
-    html += `<span class="badge bg-light text-dark border">📖 Braille</span>`;
-  }
-  if (acc.zonaTranquila) {
-    html += `<span class="badge bg-light text-dark border">🧘 Zona tranquila</span>`;
-  }
-
-  html += `</div>`;
-  return html;
+  if (badges.length === 0) return "";
+  
+  return `<div class="mt-2 d-flex flex-wrap gap-2 justify-content-center">${badges.join('')}</div>`;
 }
 
 function renderMisEventos() {

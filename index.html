@@ -63,10 +63,14 @@
       <button class="btn btn-link text-dark p-0" data-view="inicio">Inicio</button>
       <button class="btn btn-link text-dark p-0" data-view="mis-eventos">Mis eventos</button>
       <button class="btn btn-link text-dark p-0" data-view="crear-evento">Crear evento</button>
-      <button class="btn btn-link text-dark p-0">Quiénes somos</button>
+      <button class="btn btn-link text-dark p-0" data-view="quienes-somos">Quiénes somos</button>
     </nav>
 
-
+    <!-- USER / LOGOUT -->
+    <div>
+      <span id="nav-user" class="me-2 small"></span>
+      <button id="btn-logout" class="btn btn-outline-danger btn-sm">Cerrar sesión</button>
+    </div>
   </div>
 </header>
 
@@ -199,6 +203,16 @@
                 <p id="crear-error" class="text-danger small mb-3"></p>
                 <button class="btn btn-primary" type="submit">Guardar evento</button>
               </form>
+            </section>
+
+            <!-- QUIÉNES SOMOS -->
+            <section class="view" id="view-quienes-somos" style="display:none">
+              <div class="container text-center">
+                <div class="mb-5">
+                  <h2 class="fw-bold display-6">Quiénes somos 🌈</h2>
+                  <p class="lead text-muted">En DiverApp creemos que la cultura, el entretenimiento y la participación social deben ser accesibles, diversos e inclusivos para todas las personas.</p>
+                </div>
+              </div>
             </section>
 
             <!-- DETALLE -->

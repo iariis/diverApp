@@ -1,4 +1,3 @@
-/* scripts/crear.js */
 function guardarNuevoEvento() {
   const crearTitulo = document.getElementById("crear-titulo");
   const crearFecha = document.getElementById("crear-fecha");
@@ -7,9 +6,17 @@ function guardarNuevoEvento() {
   const crearCategoria = document.getElementById("crear-categoria");
   const crearModalidad = document.getElementById("crear-modalidad");
   const crearDescripcion = document.getElementById("crear-descripcion");
+  const crearImagen = document.getElementById("crear-imagen");
   const crearError = document.getElementById("crear-error");
 
-  if (!crearTitulo || !crearFecha || !crearHora || !crearLugar || !crearDescripcion) return;
+  if (
+    !crearTitulo ||
+    !crearFecha ||
+    !crearHora ||
+    !crearLugar ||
+    !crearDescripcion
+  )
+    return;
 
   crearError.textContent = "";
 
@@ -26,10 +33,23 @@ function guardarNuevoEvento() {
     return;
   }
 
+  // manejar la imagen
+  let imagenUrl = "";
+  if (crearImagen && crearImagen.files && crearImagen.files[0]) {
+    const archivo = crearImagen.files[0];
+    imagenUrl = URL.createObjectURL(archivo); // crea un enlace temporal para mostrar
+  }
+
   const nuevoEvento = {
     id: Date.now(),
-    titulo, fecha, hora, lugar, categoria, modalidad, descripcion,
-    imagen: "" // la usuaria puede añadir imagen luego (si quieren)
+    titulo,
+    fecha,
+    hora,
+    lugar,
+    categoria,
+    modalidad,
+    descripcion,
+    imagen: imagenUrl,
   };
 
   eventos.unshift(nuevoEvento); // se agrega al principio
@@ -38,5 +58,5 @@ function guardarNuevoEvento() {
   // limpiar form
   document.getElementById("form-crear-evento").reset();
   // ir a inicio
-  cambiarVista("inicio");
-}
+  cambiarVista("inicio"); 
+  }

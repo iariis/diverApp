@@ -1,46 +1,22 @@
-// ===== CARRUSEL INICIO =====
+document.addEventListener("DOMContentLoaded", () => {
+  const listaInicio = document.getElementById("listaInicio");
+  if (!listaInicio || typeof eventos === "undefined") return;
 
-// contenedor del carrusel
-const listaInicio = document.getElementById("listaInicio");
-
-// datos de ejemplo (podés reemplazarlos por los reales)
-const eventosInicio = [
-  {
-    titulo: "Festival Inclusivo",
-    descripcion: "Un espacio para compartir sin barreras",
-    imagen: "https://picsum.photos/800/400?random=1"
-  },
-  {
-    titulo: "Charla de Accesibilidad",
-    descripcion: "Tecnología para todas las personas",
-    imagen: "https://picsum.photos/800/400?random=2"
-  },
-  {
-    titulo: "Encuentro Cultural",
-    descripcion: "Arte, música y diversidad",
-    imagen: "https://picsum.photos/800/400?random=3"
-  }
-];
-
-// render del carrusel
-function renderInicio() {
   listaInicio.innerHTML = "";
 
-  eventosInicio.forEach((evento, index) => {
+  eventos.forEach((evento, index) => {
     const item = document.createElement("div");
-    item.className = `carousel-item ${index === 0 ? "active" : ""}`;
+    item.classList.add("carousel-item");
+    if (index === 0) item.classList.add("active");
 
     item.innerHTML = `
-      <img src="${evento.imagen}" class="d-block w-100" alt="${evento.titulo}">
-      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+      <img src="${evento.imagen}" class="d-block w-100" style="height:350px; object-fit:cover;">
+      <div class="carousel-caption bg-dark bg-opacity-50 rounded">
         <h5>${evento.titulo}</h5>
-        <p>${evento.descripcion}</p>
+        <p>${evento.fecha} · ${evento.lugar}</p>
       </div>
     `;
 
     listaInicio.appendChild(item);
   });
-}
-
-// ejecutar al cargar
-renderInicio();
+});

@@ -1,4 +1,3 @@
-/* scripts/detalle.js */
 function abrirDetalle(id) {
   const ev = eventos.find(e => e.id === id);
   if (!ev) return;
@@ -18,14 +17,27 @@ function abrirDetalle(id) {
   if (detalleTitulo) detalleTitulo.textContent = ev.titulo;
   if (detalleFecha) detalleFecha.textContent = `${formatearFecha(ev.fecha)} · ${ev.hora}`;
   if (detalleLugar) detalleLugar.textContent = ev.lugar;
-  if (detalleModalidad) detalleModalidad.textContent = ev.modalidad === "online" ? "Online" : "Presencial";
+  if (detalleModalidad) detalleModalidad.textContent = ev.modalidad === "online" ? "Online" : "Presencial"; // Puede estar vacío si el dato no existe
   if (detalleDescripcion) detalleDescripcion.textContent = ev.descripcion;
-  if (detalleTags) detalleTags.innerHTML = `<span class="badge bg-primary text-capitalize">${ev.categoria}</span> <span class="badge bg-secondary">${ev.modalidad}</span>`;
-  if (detalleIcono) detalleIcono.textContent = "🎵";
+
+  // Renderizar imagen o ícono de fallback
+  if (detalleIcono && ev.imagen) {
+    detalleIcono.innerHTML = `
+      <img src="${ev.imagen}" alt="${ev.titulo}" class="img-fluid rounded-circle" style="width: 56px; height: 56px; object-fit: cover;">
+    `;
+  } else if (detalleIcono) {
+    detalleIcono.innerHTML = '🎵'; // Ícono por defecto si no hay imagen
+  }
+
+  // Renderizar etiquetas de accesibilidad si existen
+  if (detalleTags && typeof renderAccesibilidad === 'function') {
+    detalleTags.innerHTML = renderAccesibilidad(ev.accesibilidad);
+  }
 
   const inscripto = eventosInscripto.includes(ev.id);
   if (detalleEstado) detalleEstado.textContent = inscripto ? "Ya estás anotado a este evento." : "Todavía no estás anotado a este evento.";
   if (btnToggleInscripcion) btnToggleInscripcion.textContent = inscripto ? "Cancelar reserva" : "Reservar entrada";
+  if (btnToggleInscripcion) btnToggleInscripcion.className = `btn ${inscripto ? 'btn-danger' : 'btn-primary'}`;
 
   cambiarVista("detalle");
 }

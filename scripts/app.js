@@ -20,7 +20,8 @@ const views = {
   inicio: document.getElementById("view-inicio"),
   "mis-eventos": document.getElementById("view-mis-eventos"),
   "crear-evento": document.getElementById("view-crear-evento"),
-  detalle: document.getElementById("view-detalle")
+  detalle: document.getElementById("view-detalle"),
+  "quienes-somos": document.getElementById("view-quienes-somos")
 };
 
 function cambiarVista(nombre) {
@@ -160,6 +161,7 @@ navButtons.forEach((btn) => {
     if (vista === "inicio") { renderInicio(); }
     if (vista === "mis-eventos") { renderMisEventos(); }
     if (vista === "crear-evento") { /* nada extra */ }
+    if (vista === "quienes-somos") { /* nada extra */ }
   });
 });
 

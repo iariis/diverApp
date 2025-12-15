@@ -10,23 +10,25 @@ function abrirDetalle(id) {
   const detalleModalidad = document.getElementById("detalle-modalidad");
   const detalleDescripcion = document.getElementById("detalle-descripcion");
   const detalleTags = document.getElementById("detalle-tags");
-  const detalleIcono = document.getElementById("detalle-icono");
+  const detalleImagen = document.getElementById("detalle-imagen");
   const detalleEstado = document.getElementById("detalle-estado");
   const btnToggleInscripcion = document.getElementById("btn-toggle-inscripcion");
 
   if (detalleTitulo) detalleTitulo.textContent = ev.titulo;
   if (detalleFecha) detalleFecha.textContent = `${formatearFecha(ev.fecha)} · ${ev.hora}`;
   if (detalleLugar) detalleLugar.textContent = ev.lugar;
-  if (detalleModalidad) detalleModalidad.textContent = ev.modalidad === "online" ? "Online" : "Presencial"; // Puede estar vacío si el dato no existe
+  if (detalleModalidad) detalleModalidad.textContent = ev.modalidad === "online" ? "Online" : "Presencial";
   if (detalleDescripcion) detalleDescripcion.textContent = ev.descripcion;
 
-  // Renderizar imagen o ícono de fallback
-  if (detalleIcono && ev.imagen) {
-    detalleIcono.innerHTML = `
-      <img src="${ev.imagen}" alt="${ev.titulo}" class="img-fluid rounded-circle" style="width: 56px; height: 56px; object-fit: cover;">
-    `;
-  } else if (detalleIcono) {
-    detalleIcono.innerHTML = '🎵'; // Ícono por defecto si no hay imagen
+  // Renderizar imagen del evento
+  if (detalleImagen) {
+    if (ev.imagen) {
+      detalleImagen.src = ev.imagen;
+      detalleImagen.alt = ev.titulo;
+      detalleImagen.style.display = "block";
+    } else {
+      detalleImagen.style.display = "none";
+    }
   }
 
   // Renderizar etiquetas de accesibilidad si existen

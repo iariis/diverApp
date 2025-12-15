@@ -14,7 +14,8 @@ function guardarNuevoEvento() {
     !crearFecha ||
     !crearHora ||
     !crearLugar ||
-    !crearDescripcion
+    !crearDescripcion ||
+    !crearImagen // Asegurarnos que el input de imagen exista
   )
     return;
 

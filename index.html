@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+  <head> 
     <meta charset="UTF-8" />
     <title>DiverApp - Eventos inclusivos</title>
     <link rel="icon" href="./img/icono_pagina.png">
@@ -65,11 +65,11 @@
     </main>
 
     <!-- ====== APP ====== -->
-    <div id="app-view" class="app-layout d-none min-vh-100">
+    <div id="app-view" class="d-none d-flex min-vh-100">
       <!-- MAIN AREA -->
       <div class="main-area flex-grow-1 d-flex flex-column bg-white">
         <!-- TOPBAR -->
-        <header class="eventbrite-topbar border-bottom bg-white px-4 py-3">
+        <header class="border-bottom bg-white px-4 py-3 sticky-top">
           <div
             class="container-fluid d-flex align-items-center justify-content-between"
           >
@@ -129,11 +129,11 @@
                     </p>
 
                     <div class="input-group mt-4">
-                      <span class="input-group-text">🔍</span>
+                      <span class="input-group-text rounded-start-pill">🔍</span>
                       <input
                         type="text"
                         id="buscar-global"
-                        class="form-control"
+                        class="form-control rounded-end-pill"
                         placeholder="Buscar eventos..."
                       />
                     </div>
@@ -186,13 +186,13 @@
           </section>
 
           <!-- MIS EVENTOS -->
-          <section class="view" id="view-mis-eventos" style="display: none">
-            <h2 class="h4 mb-3">Mis Eventos 📅</h2>
-            <div id="lista-mis-eventos" class="d-flex flex-column gap-3"></div>
+          <section class="view " id="view-mis-eventos" >
+            <h2 class="fw-semibold">Mis Eventos 📅</h2>
+            <div id="lista-mis-eventos" class="small text-muted d-flex flex-column gap-3"></div>
           </section>
 
           <!-- CREAR EVENTO -->
-          <section class="view" id="view-crear-evento" style="display: none">
+          <section class="view" id="view-crear-evento">
             <h2 class="h4 mb-3">Crear Evento</h2>
             <form id="form-crear-evento" class="crear-form">
               <div class="mb-3">
@@ -213,7 +213,7 @@
                     id="crear-fecha"
                     class="form-control"
                     required
-                  />
+                  />view-title
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Hora</label>
@@ -287,7 +287,7 @@
           </section>
 
           <!-- QUIÉNES SOMOS -->
-          <section class="view" id="view-quienes-somos" style="display: none">
+          <section class="view" id="view-quienes-somos">
             <div class="container">
               <!-- INTRO -->
               <div class="text-center mb-5">
@@ -380,7 +380,7 @@
           </section>
 
           <!-- DETALLE -->
-          <section class="view" id="view-detalle" style="display: none">
+          <section class="view" id="view-detalle">
             <button id="btn-volver-lista" class="btn btn-link px-0 mb-3">
               ← Volver
             </button>
@@ -391,12 +391,6 @@
               src=""
               alt=""
               class="img-fluid rounded-3 mb-4"
-              style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                display: none;
-              "
             />
 
             <h2 id="detalle-titulo" class="h3 text-center mb-1"></h2>

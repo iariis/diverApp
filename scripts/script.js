@@ -334,7 +334,208 @@ const eventosHardcodeados = [
       zonaTranquila: true,
     },
   },
+  {
+  id: 21,
+    titulo: "Mercado de Artesanos",
+    fecha: "2026-03-08",
+    hora: "10:00",
+    lugar: "Plaza de la Creatividad",
+    imagen: "img/c2a5db2c-5e78-4b7f-94df-06789af7f444.jpeg",
+    descripcion: "Feria artesanal con espacios accesibles.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: true, zonaTranquila: false }
+  },
+  {
+    id: 22,
+    titulo: "Capacitación Digital",
+    fecha: "2026-03-10",
+    hora: "17:00",
+    lugar: "Punto Digital Barracas",
+    imagen: "img/80a39f35-4d5f-4a8d-8781-a713e724e185.jpeg",
+    descripcion: "Introducción a herramientas digitales con apoyo personalizado.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: true, zonaTranquila: true }
+  },
+  {
+    id: 23,
+    titulo: "Cine Sensorial",
+    fecha: "2026-03-12",
+    hora: "18:00",
+    lugar: "Centro Cultural Sur",
+    imagen: "img/Cabc23a8-f237-4186-894e-435025dd26c9.jpeg",
+    descripcion: "Proyección con luces bajas y volumen moderado.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 24,
+    titulo: "Encuentro de Jóvenes",
+    fecha: "2026-03-15",
+    hora: "16:30",
+    lugar: "Centro Juvenil Oeste",
+    imagen: "img/E284e720-2f5a-4caa-ad45-8160fd339492.jpeg",
+    descripcion: "Actividad recreativa con dinámicas accesibles.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 25,
+    titulo: "Arte Terapia",
+    fecha: "2026-03-18",
+    hora: "15:00",
+    lugar: "Fundación Crear",
+    imagen: "img/C009285e-ceaa-430f-a5a6-8fb2f13beea8.jpeg",
+    descripcion: "Expresión artística guiada con acompañamiento emocional.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 26,
+    titulo: "Taller de Música",
+    fecha: "2026-03-20",
+    hora: "18:00",
+    lugar: "Escuela Popular de Música",
+    imagen: "img/89bb5d6c-f9b0-4369-9155-7b50cbc0b502.jpeg",
+    descripcion: "Exploración sonora con instrumentos accesibles.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: false }
+  },
+  {
+    id: 27,
+    titulo: "Encuentro Ambiental",
+    fecha: "2026-03-23",
+    hora: "10:00",
+    lugar: "Reserva Ecológica",
+    imagen: "img/2c7682b2-5bd1-4196-ac3c-afa86d4c06b4.jpeg",
+    descripcion: "Recorrido accesible sobre cuidado ambiental.",
+    accesibilidad: { rampas: true, banios: false, lsa: false, braille: false, zonaTranquila: false }
+  },
+  {
+    id: 28,
+    titulo: "Fotografía con Celular",
+    fecha: "2026-03-26",
+    hora: "17:30",
+    lugar: "Centro Cultural Abasto",
+    imagen: "img/7cd4692a-cab4-44ab-9b97-ff5b18c89fa4.jpeg",
+    descripcion: "Taller práctico con explicaciones simples.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 29,
+    titulo: "Charla Motivacional",
+    fecha: "2026-03-29",
+    hora: "19:00",
+    lugar: "Auditorio Central",
+    imagen: "img/75366661-80bb-4982-b78d-7d8529826529.jpeg",
+    descripcion: "Encuentro inspirador con intérprete de LSA.",
+    accesibilidad: { rampas: true, banios: true, lsa: true, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 30,
+    titulo: "Encuentro Creativo",
+    fecha: "2026-04-01",
+    hora: "18:00",
+    lugar: "Centro Cultural Norte",
+    imagen: "img/Cab33850-5e62-40cb-8cf3-72f210760f7c.jpeg",
+    descripcion: "Sesión de improvisación y arte colaborativo.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 31,
+    titulo: "Café Inclusivo",
+    fecha: "2026-04-02",
+    hora: "17:00",
+    lugar: "Café Cultural",
+    imagen: "img/243684f2-e9d8-4d8f-9c14-ee5835702b49.jpeg",
+    descripcion: "Encuentro social en ambiente tranquilo.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: true }
+  },
+  {
+    id: 32,
+    titulo: "Taller de Escritura",
+    fecha: "2026-04-05",
+    hora: "18:00",
+    lugar: "Casa de la Cultura",
+    imagen: "img/5629a5cb-1b30-400a-829b-39df87ecdb8d.jpeg",
+    descripcion: "Escritura creativa con consignas claras.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: true, zonaTranquila: true }
+  },
+  {
+    id: 33,
+    titulo: "Visita al Museo",
+    fecha: "2026-04-05",
+    hora: "11:00",
+    lugar: "Museo Histórico",
+    imagen: "img/e93c4d9d-c951-46bd-a3bd-4c9cdc21ec1c.jpeg",
+    descripcion: "Recorrido guiado adaptado con material táctil.",
+    accesibilidad: { rampas: true, banios: true, lsa: true, braille: true, zonaTranquila: false }
+  },
+  {
+    id: 34,
+    titulo: "Juego Cooperativo",
+    fecha: "2026-04-10",
+    hora: "16:00",
+    lugar: "Centro Lúdico",
+    imagen: "img/38b36361-fd08-4d57-a370-9e6b225730fb.jpeg",
+    descripcion: "Juegos sin competencia y reglas simples.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: false }
+  },
+  {
+    id: 35,
+    titulo: "Encuentro Artístico",
+    fecha: "2026-04-12",
+    hora: "15:00",
+    lugar: "Galería Abierta",
+    imagen: "img/D9716c85-0c4e-4a9a-b371-5aff3aaf0fdf.jpeg",
+    descripcion: "Exposición interactiva con guías accesibles.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: true, zonaTranquila: true }
+  },
+  {
+    id: 36,
+    titulo: "Clase de Baile Libre",
+    fecha: "2026-04-15",
+    hora: "18:30",
+    lugar: "Salón Movimiento",
+    imagen: "img/Cc8b253d-4bdf-4a48-829b-5eac971ce962.jpeg",
+    descripcion: "Movimiento libre con opciones adaptadas.",
+    accesibilidad: { rampas: true, banios: false, lsa: false, braille: false, zonaTranquila: false }
+  },
+  {
+    id: 37,
+    titulo: "Charla de Salud Integral",
+    fecha: "2026-04-18",
+    hora: "17:30",
+    lugar: "Centro de Salud Comunitario",
+    imagen: "img/95544fa5-0a5a-41be-8e19-8beb96e4c4f2.jpeg",
+    descripcion: "Información clara sobre bienestar físico y mental.",
+    accesibilidad: { rampas: true, banios: true, lsa: true, braille: true, zonaTranquila: true }
+  },
+  {
+    id: 38,
+    titulo: "Encuentro Familiar",
+    fecha: "2026-04-20",
+    hora: "12:00",
+    lugar: "Parque Avellaneda",
+    imagen: "img/E7de8626-b275-4807-b3d6-33b447e4c105.jpeg",
+    descripcion: "Actividad recreativa para todas las edades.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: false, zonaTranquila: false }
+  },
+  {
+    id: 39,
+    titulo: "Taller de Emociones",
+    fecha: "2026-04-23",
+    hora: "19:00",
+    lugar: "Espacio de Desarrollo Personal",
+    imagen: "img/9a4f0598-8364-436b-9158-fa33bd97c24b.jpeg",
+    descripcion: "Reconocimiento y gestión emocional en grupo.",
+    accesibilidad: { rampas: true, banios: true, lsa: false, braille: true, zonaTranquila: true }
+  },
+  {
+    id: 40,
+    titulo: "Cierre Comunitario",
+    fecha: "2026-04-25",
+    hora: "18:00",
+    lugar: "Centro Cultural Central",
+    imagen: "img/2b5d4bc0-696b-44e9-9ee4-fdecfa05c6ea.jpeg",
+    descripcion: "Encuentro de cierre con música tranquila y participación comunitaria.",
+    accesibilidad: { rampas: true, banios: true, lsa: true, braille: false, zonaTranquila: true }
+  }
 ];
+
 
 // Cargar eventos desde localStorage o usar los hardcodeados como fallback
 const eventosGuardados = localStorage.getItem("diverAppEventos");
